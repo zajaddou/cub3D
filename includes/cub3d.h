@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/08 11:32:34 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/08 11:56:08 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *s);
 
+// GLOBAL
 int     err_msg(char *str, int code);
+
+void	terminal_logo(void);
 
 #endif

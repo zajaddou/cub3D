@@ -1,11 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
+#    Updated: 2025/09/08 11:57:59 by zajaddou         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME    = cub3D
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
 SRC =  \
-	./lib/ft_putstr_fd.c \
-	./lib/ft_strlen.c \
-	./src/error.c \
+		./lib/ft_putstr_fd.c \
+		./lib/ft_strlen.c \
+		./src/global.c \
+		./src/terminal.c \
 
 OBJ_M = $(SRC:.c=.o)
 
@@ -33,5 +46,7 @@ push: fclean
 	@git commit -m "update"
 	@git push
 	@clear
+
+run: all clean
 
 .PHONY: all clean fclean re
