@@ -3,9 +3,9 @@ CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
 SRC =  \
-		./lib/ft_putstr_fd.c \
-		./lib/ft_strlen.c \
-		./src/error.c \
+	./lib/ft_putstr_fd.c \
+	./lib/ft_strlen.c \
+	./src/error.c \
 
 OBJ_M = $(SRC:.c=.o)
 
