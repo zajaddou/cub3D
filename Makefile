@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/09 12:35:46 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/09 13:33:53 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ CFLAGS  = -Wall -Wextra -Werror
 SRC =  \
 		./lib/ft_putstr_fd.c \
 		./lib/ft_strlen.c \
+		./src/parsing/files.c \
 		./src/global.c \
-		./src/terminal.c \
+		./src/more.c \
 
 OBJ_M = $(SRC:.c=.o)
 
