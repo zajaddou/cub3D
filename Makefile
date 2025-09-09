@@ -6,13 +6,15 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/09 17:28:04 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/09 17:34:33 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = cub3d
+NAME    = cub3D
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror 
+
+BONUS = 0
 
 SRC =  \
 		./lib/ft_putstr_fd.c \
@@ -31,23 +33,26 @@ OBJ_M = $(SRC:.c=.o)
 
 all: $(NAME)
 
+bonus:
+	make all BONUS=1
+
 $(NAME): main.o $(OBJ_M)
-	$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
+	@$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c includes/cub3d.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf .vscode
-	rm -f $(OBJ_M) main.o
-	clear
+	@rm -f $(OBJ_M) main.o
+	@clear
 
 fclean: clean
-	rm -f $(NAME)
-	clear
+	@rm -f $(NAME)
+	@clear
 
 re: fclean all
-	clear
+	@clear
 
 push: fclean
 	@git add .

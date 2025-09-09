@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 17:27:48 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/09 17:38:01 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 # define CUB3D_H
 
 # include "colors.h"
+# include "env.h"
 # include <mlx.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <limits.h>
-
-# define ERR 1
-# define OK 0
-
-# define WIN_W 1080
-# define WIN_H 490
-# define BUFFER_SIZE 1024
-
 
 typedef struct s_data 
 {
