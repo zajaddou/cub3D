@@ -6,14 +6,13 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:07:01 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 12:31:39 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/09 14:49:56 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
 
-# define ERR_INPUT "Empty input !"
 # define ERR_FILE_NOT_CUB "Not a .cub file"
 # define ERR_FILE_NOT_XPM "Not an .xpm file"
 # define ERR_FLOOR_CEILING "Invalid floor/ceiling RGB color(s)"
