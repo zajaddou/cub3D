@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/09 13:33:53 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/09 16:20:54 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,14 @@ SRC =  \
 		./src/parsing/files.c \
 		./src/global.c \
 		./src/more.c \
+		./src/parsing/static.c \
 
 OBJ_M = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): main.o $(OBJ_M)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c includes/cub3d.h
 	$(CC) $(CFLAGS) -c $< -o $@

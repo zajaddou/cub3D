@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 14:54:07 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/09 15:47:01 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	is_xpm_file(char *path)
 	len = ft_strlen(path);
 	if (len < 4)
 		return (error("Not a .xpm file"), ERR);
-	if (!(path[len - 4] == '.' && path[len - 3] == 'c' && path[len - 2] == 'u' && path[len - 1] == 'b'))
+	if (!(path[len - 4] == '.' && path[len - 3] == 'x' && path[len - 2] == 'p' && path[len - 1] == 'm'))
 		return (error("Not a .xpm file"), ERR);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
