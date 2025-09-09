@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/09 16:20:54 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/09 17:28:04 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,12 @@ CFLAGS  = -Wall -Wextra -Werror
 
 SRC =  \
 		./lib/ft_putstr_fd.c \
+		./lib/ft_strjoin.c \
+		./lib/ft_strchr.c \
+		./lib/ft_strncpy.c \
+		./lib/ft_strdup.c \
 		./lib/ft_strlen.c \
+		./lib/ft_getline.c \
 		./src/parsing/files.c \
 		./src/global.c \
 		./src/more.c \

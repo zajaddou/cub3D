@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 16:24:58 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/09 17:27:48 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <limits.h>
 
 # define ERR 1
 # define OK 0
 
 # define WIN_W 1080
 # define WIN_H 490
+# define BUFFER_SIZE 1024
+
 
 typedef struct s_data 
 {
@@ -49,6 +52,11 @@ void	error(char *str);
 void	logo(void);
 
 // LIB
+char	*ft_strncpy(char *dest, const char *src, size_t n);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
 void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *s);
 
