@@ -6,11 +6,11 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/08 11:57:59 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/09 12:35:46 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = cub3D
+NAME    = cub3d
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
@@ -31,6 +31,7 @@ $(NAME): main.o $(OBJ_M)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	@rm -rf .vscode
 	rm -f $(OBJ_M) main.o
 	clear
 

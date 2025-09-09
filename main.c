@@ -6,17 +6,50 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/08 12:01:42 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/09 12:34:21 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
+bool	is_dir(char *path)
+{
+	int		fd;
+	bool	res;
+
+	res = false;
+	fd = open(path, O_DIRECTORY);
+	if (fd >= 0)
+	{
+		res = true;
+		close (fd);
+	}
+	return (res);
+}
+
+int	check_file(char *path)
+{
+	if (is_dir(path))
+		return (error("Is a directory"), ERR);
+	return (OK);
+}
+
+int	parse_input(char *path)
+{
+	if (check_file(path) == ERR)
+		return (ERR);
+	return (OK);
+}
+
 int	main(int ac, char **av)
 {
-	(void)av;
-    terminal_logo();
+	logo();
+	
 	if (ac != 2)
-		return (err_msg("Empty input", 1));
-	return (0);
+		return (error(ERR_INPUT), 1);
+
+	if (parse_input(av[1]))
+		return (ERR);
+
+	return (OK);
 }
