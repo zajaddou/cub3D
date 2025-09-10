@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 15:23:50 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 13:48:57 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 13:49:32 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	is_overflow(char *str, int i)
 
 	if (!str)
 		return (1);
-	len = (int)ftp_strlen(str);
+	len = (int)ft_strlen(str);
 	if (i >= len)
 		return (1);
 	if (i < 0)
