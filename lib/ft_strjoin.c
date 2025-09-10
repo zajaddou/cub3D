@@ -6,11 +6,11 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:24:17 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 13:55:35 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 14:07:25 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
 static void	copy_strings(char *dest, const char *src1, const char *src2)
 {

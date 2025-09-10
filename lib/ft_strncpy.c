@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 01:09:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 13:55:40 by zajaddou         ###   ########.fr       */
+/*   Created: 2025/09/09 17:27:32 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/10 14:07:25 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char	char_c;
+	size_t	i;
 
-	char_c = (char)c;
-	while (*s)
+	i = 0;
+	while (i < n && src[i] != '\0')
 	{
-		if (*s == char_c)
-			return ((char *)s);
-		s++;
+		dest[i] = src[i];
+		i++;
 	}
-	if (char_c == '\0')
-		return ((char *)s);
-	return (NULL);
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

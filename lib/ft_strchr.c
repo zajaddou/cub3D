@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 11:39:14 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 13:55:33 by zajaddou         ###   ########.fr       */
+/*   Created: 2024/10/28 01:09:46 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/10 14:07:25 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	const char	*p;
+	char	char_c;
 
-	if (!s)
-		return (0);
-	p = s;
-	while (*p)
-		p++;
-	return (p - s);
+	char_c = (char)c;
+	while (*s)
+	{
+		if (*s == char_c)
+			return ((char *)s);
+		s++;
+	}
+	if (char_c == '\0')
+		return ((char *)s);
+	return (NULL);
 }
