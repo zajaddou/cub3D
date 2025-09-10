@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 12:21:15 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 14:04:44 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,14 @@ int		read_map(char *path)
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
 	if (!line)
-		return (error("Empty file ( .cub )"), ERR);
+		return (close(fd), error("Empty file ( .cub )"), ERR);
 	while (line)
 	{
-		buff_str(line);
+		if (!is_empty(line))
+			buff_str(line);
 		line = get_next_line(fd);
 	}
 	map->raw = buff_ch(GET);
+	close(fd);
 	return (OK);
 }

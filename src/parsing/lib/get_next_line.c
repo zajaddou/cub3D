@@ -6,11 +6,11 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 08:17:34 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 17:21:42 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 13:56:51 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 static char	*utils_ft_strchr(const char *s, int c)
 {

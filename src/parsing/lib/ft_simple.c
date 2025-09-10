@@ -6,11 +6,11 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 15:23:50 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 13:49:32 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 13:55:42 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 int	is_space(int c)
 {

@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/10 13:47:39 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/10 13:57:36 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,21 @@ CC      = cc
 CFLAGS  = -Wall -Wextra -Werror 
 
 SRC =  \
-		./lib/ft_putstr_fd.c \
-		./lib/ft_buffer.c \
-		./lib/ft_strjoin.c \
-		./lib/ft_strchr.c \
-		./lib/ft_strncpy.c \
-		./lib/ft_strdup.c \
-		./lib/ft_simple.c \
-		./lib/ft_strlen.c \
-		./lib/ft_getline.c \
+		./global/global.c \
+		./global/more.c \
+		./src/parsing/lib/ft_putstr_fd.c \
+		./src/parsing/lib/buffer.c \
+		./src/parsing/lib/ft_strjoin.c \
+		./src/parsing/lib/ft_strchr.c \
+		./src/parsing/lib/ft_strncpy.c \
+		./src/parsing/lib/ft_strdup.c \
+		./src/parsing/lib/ft_simple.c \
+		./src/parsing/lib/ft_strlen.c \
+		./src/parsing/lib/get_next_line.c \
 		./src/parsing/files.c \
 		./src/parsing/static.c \
 		./src/parsing/parse.c \
-		./global/global.c \
-		./global/more.c \
+
 
 
 OBJ_M = $(SRC:.c=.o)

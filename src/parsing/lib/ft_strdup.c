@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 01:09:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 17:26:28 by zajaddou         ###   ########.fr       */
+/*   Created: 2024/10/31 22:42:22 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/10 13:55:37 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strdup(const char *s)
 {
-	char	char_c;
+	size_t	len;
+	char	*copy;
+	char	*start;
 
-	char_c = (char)c;
+	len = ft_strlen(s);
+	copy = malloc(len + 1);
+	if (copy == NULL)
+		return (NULL);
+	start = copy;
 	while (*s)
-	{
-		if (*s == char_c)
-			return ((char *)s);
-		s++;
-	}
-	if (char_c == '\0')
-		return ((char *)s);
-	return (NULL);
+		*copy++ = *s++;
+	*copy = '\0';
+	return (start);
 }

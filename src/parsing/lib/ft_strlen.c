@@ -6,11 +6,11 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 11:39:14 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 13:03:39 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 13:55:33 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
 size_t	ft_strlen(const char *s)
 {

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 22:42:22 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 17:25:23 by zajaddou         ###   ########.fr       */
+/*   Created: 2025/09/08 11:39:21 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/10 13:55:45 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../../includes/cub3d.h"
 
-char	*ft_strdup(const char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	len;
-	char	*copy;
-	char	*start;
-
-	len = ft_strlen(s);
-	copy = malloc(len + 1);
-	if (copy == NULL)
-		return (NULL);
-	start = copy;
-	while (*s)
-		*copy++ = *s++;
-	*copy = '\0';
-	return (start);
+	if (s)
+		write(fd, s, ft_strlen(s));
 }
