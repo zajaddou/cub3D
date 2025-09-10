@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 19:09:57 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:36:39 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,15 @@ char *cut_to_end(char *str)
 	return (NULL);
 }
 
-char *cut_config(char *str, char a, char b)
+char *cut_config(char *str, char *tag)
 {
 	int	i;
 
 	i = -1;
 	while (str[++i])
 	{
-		if (str[i] == a && b == 0)
-			return (cut_to_end(&str[i]));
-		else if (str[i] == a)
-			if (!is_overflow(str, i+1) && str[i+1] == b)
+		if (str[i] == tag[0])
+			if (!is_overflow(str, i+1) && str[i+1] == tag[1])
 				return (cut_to_end(&str[i]));	
 	}
 	return (NULL);
@@ -45,16 +43,20 @@ char *cut_config(char *str, char a, char b)
 
 int config_raw(char *raw)
 {
-	char *temp;
+	char *res;
 
 	if (!word_search(raw, "NO ") || !word_search(raw, "SO ")
 		|| !word_search(raw, "WE ") || !word_search(raw, "EA ")
 		|| !word_search(raw, "F ") || !word_search(raw, "C "))
 		return (error("incorrect config ( .cub )"), ERR);
 
-	temp = cut_config(raw, 'N', 'O');
-	if (!temp)
+	res = cut_config(raw, "NO");
+	if (!res)
 		return (ERR);
-	printf("\nNO: %s\n", temp);
+	printf("\nNO: %s\n", res);
+	res = cut_config(raw, "F ");
+	if (!res)
+		return (ERR);
+	printf("\nF : %s\n", res);
 	return (OK);
 }
