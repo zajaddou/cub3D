@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 13:57:48 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:25:04 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # include <fcntl.h>
 # include <limits.h>
 
+typedef struct parsing
+{
+	char		*texture_path[4];
+	char		*raw_config;
+	char		*raw_map;
+}	t_parsing;
+
 typedef struct s_data 
 {
 	void		*mlx;
@@ -32,7 +39,6 @@ typedef struct s_data
 
 typedef struct s_map
 {
-	char		*raw;
 	int			h;
 	int			w;
 }	t_map;
@@ -53,14 +59,15 @@ char	*buff_ch(int c);
 char	*buff_str(char *str);
 
 // FUNCTIONS
-int	    is_cub_file(char *path);
-int     is_xpm_file(char *path);
-int		parse_input(char *path);
-int		read_map(char *path);
-int		is_overflow(char *str, int i);
-int		is_empty(char *str);
-int		is_space(int c);
-t_data	*data_g(void);
-t_map	*map_g(void);
+int	    	is_cub_file(char *path);
+int			parse_input(char *path);
+int			read_map(char *path);
+int 		config_raw(char *raw);
+int			is_overflow(char *str, int i);
+int			is_empty(char *str);
+int			is_space(int c);
+t_data		*data_g(void);
+t_map		*map_g(void);
+t_parsing	*parsing_g(void);
 
 #endif

@@ -6,11 +6,27 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 14:04:44 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:25:51 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+int is_valid_file(char *path)
+{
+	int		fd;
+	char	*line;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (error("Cannot open file"), ERR);
+	line = get_next_line(fd);
+	if (!line)
+		return (close(fd), error("Empty file"), ERR);
+	close(fd);
+	free(line);
+	return (OK);
+}
 
 static	int	is_dir(char *path)
 {
@@ -44,43 +60,46 @@ int	is_cub_file(char *path)
 	return (OK);
 }
 
-int	is_xpm_file(char *path)
+void cut_line(char *line)
 {
-	int	len;
-	int	fd;
-
-	if (is_dir(path))
-		return (error("Is a directory"), ERR);
-	len = ft_strlen(path);
-	if (len < 4)
-		return (error("Not a .xpm file"), ERR);
-	if (!(path[len - 4] == '.' && path[len - 3] == 'x' && path[len - 2] == 'p' && path[len - 1] == 'm'))
-		return (error("Not a .xpm file"), ERR);
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		return (error("Cannot open file ( .xpm )"), ERR);
-	close(fd);
-	return (OK);
+	t_parsing	*ptr;
+	static int	call;
+	int			i;
+	
+	ptr = parsing_g();
+	call++;
+	if (call <= 6)
+	{
+		i = -1;
+		while (line[++i])
+		{
+			if (is_space(line[i]) && is_space(line[i+1]))
+				continue;
+			buff_ch(line[i]);
+		}
+	}
+	else
+		buff_str(line);
+	if (call == 6)
+		ptr->raw_config = buff_ch(GET);
 }
 
 int		read_map(char *path)
 {
-	int 	fd;
-	char	*line;
-	t_map	*map;
+	int			fd;
+	char		*line;
+	t_parsing	*ptr;
 
-	map = map_g();
+	ptr = parsing_g();
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
-	if (!line)
-		return (close(fd), error("Empty file ( .cub )"), ERR);
 	while (line)
 	{
 		if (!is_empty(line))
-			buff_str(line);
+			cut_line(line);
 		line = get_next_line(fd);
 	}
-	map->raw = buff_ch(GET);
+	ptr->raw_map = buff_ch(GET);
 	close(fd);
 	return (OK);
 }

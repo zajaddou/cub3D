@@ -6,22 +6,28 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 14:00:11 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:27:26 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
+
 int	parse_input(char *path)
 {
-	t_map	*map;
+	t_parsing	*ptr;
 
-	map = map_g();
+	ptr = parsing_g();
 	if (is_cub_file(path) == ERR)
 		return (ERR);
 	if (read_map(path))
 		return (ERR);
 
-    printf("%s", map->raw);
+	if (config_raw(ptr->raw_config))
+		return (ERR);
+
+	printf("\n       -- config --\n\n%s\n", ptr->raw_config);
+	printf("      -- cub3D map --\n\n%s", ptr->raw_map);
+	
 	return (OK);
 }

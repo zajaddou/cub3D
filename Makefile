@@ -6,13 +6,13 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/10 14:09:37 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/10 15:56:08 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = cub3D
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror 
+CFLAGS  = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRC =  \
 	./global/global.c \
@@ -26,6 +26,7 @@ SRC =  \
 	./lib/ft_simple.c \
 	./lib/ft_strlen.c \
 	./lib/get_next_line.c \
+	./src/parsing/config.c \
 	./src/parsing/files.c \
 	./src/parsing/static.c \
 	./src/parsing/parse.c \
@@ -59,5 +60,7 @@ push: fclean
 	@clear
 
 run: all clean
+	@./cub3D maps/map.cub
+
 
 .PHONY: all clean fclean re

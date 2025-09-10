@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:26:54 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 10:35:59 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 14:55:05 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,11 @@ t_map	*map_g(void)
 	static t_map	map;
 
 	return (&map);
+}
+
+t_parsing	*parsing_g(void)
+{
+	static t_parsing	parsing;
+
+	return (&parsing);
 }
