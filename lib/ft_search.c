@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_simple.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 15:23:50 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 18:56:07 by zajaddou         ###   ########.fr       */
+/*   Created: 2024/11/01 19:38:37 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/10 18:44:27 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	is_space(int c)
+int	word_search(char *str, char *need)
 {
-	if (c == ' ' || c == '\t' || c == '\n')
-		return (1);
-	return (0);
-}
+	size_t i;
+	size_t b;
 
-int	is_empty(char *str)
-{
-	int	i;
-
-	i = -1;
-	if (!str)
+	if (!*need)
 		return (1);
-	while (str[++i])
-		if (!is_space(str[i]))
-			return (0);
-	return (1);
-}
-
-int	is_overflow(char *str, int i)
-{
-	int	len;
-
-	if (!str)
-		return (1);
-	len = (int)ft_strlen(str);
-	if (i >= len)
-		return (1);
-	if (i < 0)
-		return (1);
+	i = 0;
+	while (str[i])
+	{
+		b = 0;
+		while (str[i + b] && need[b] && str[i + b] == need[b])
+			b++;
+		if (!need[b])
+			return (1);
+		i++;
+	}
 	return (0);
 }

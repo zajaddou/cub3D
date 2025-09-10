@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/10 15:56:08 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/10 18:56:43 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC =  \
 	./global/global.c \
 	./global/more.c \
 	./lib/ft_putstr_fd.c \
-	./lib/buffer.c \
+	./lib/ft_buffer.c \
+	./lib/ft_search.c \
 	./lib/ft_strjoin.c \
 	./lib/ft_strchr.c \
 	./lib/ft_strncpy.c \

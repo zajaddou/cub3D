@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 15:57:30 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:09:57 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char *cut_to_end(char *str)
 	str+= 2;
 	if (*str == ' ' || *str == '\t')
 		str++;
-	if (*str == '\n' || *str == '\0')
-		return (error("void config"), NULL);
 	while (*str)
 	{
 		if (*str == '\n' || *str == '\0')
@@ -48,7 +46,12 @@ char *cut_config(char *str, char a, char b)
 int config_raw(char *raw)
 {
 	char *temp;
-	
+
+	if (!word_search(raw, "NO ") || !word_search(raw, "SO ")
+		|| !word_search(raw, "WE ") || !word_search(raw, "EA ")
+		|| !word_search(raw, "F ") || !word_search(raw, "C "))
+		return (error("incorrect config ( .cub )"), ERR);
+
 	temp = cut_config(raw, 'N', 'O');
 	if (!temp)
 		return (ERR);

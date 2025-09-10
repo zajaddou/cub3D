@@ -6,61 +6,52 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 16:25:51 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:19:53 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int is_valid_file(char *path)
+int	is_valid_file(char *path)
 {
 	int		fd;
-	char	*line;
+	int		res;
+	char	buff[20];
+
+	fd = open(path, O_DIRECTORY);
+	if (fd >= 0)
+		return (close(fd), error("Path is a directory"), ERR);
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return (error("Cannot open file"), ERR);
-	line = get_next_line(fd);
-	if (!line)
+
+	res = read(fd, buff, sizeof(buff));
+	if (res <= 0)
 		return (close(fd), error("Empty file"), ERR);
+
 	close(fd);
-	free(line);
-	return (OK);
-}
-
-static	int	is_dir(char *path)
-{
-	int	fd;
-
-	fd = open(path, O_DIRECTORY);
-	if (fd >= 0)
-	{
-		close (fd);
-		return (ERR);
-	}
 	return (OK);
 }
 
 int	is_cub_file(char *path)
 {
 	int	len;
-	int	fd;
 
-	if (is_dir(path))
-		return (error("Is a directory"), ERR);
+	if (is_valid_file(path) == ERR)
+		return (ERR);
 	len = ft_strlen(path);
 	if (len < 4)
 		return (error("Not a .cub file"), ERR);
-	if (!(path[len - 4] == '.' && path[len - 3] == 'c' && path[len - 2] == 'u' && path[len - 1] == 'b'))
+	if (!(path[len - 4] == '.' && path[len - 3] == 'c' 
+			&& path[len - 2] == 'u' && path[len - 1] == 'b'))
 		return (error("Not a .cub file"), ERR);
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		return (error("Cannot open file ( .cub )"), ERR);
-	close(fd);
+	if (is_valid_file(path) == ERR)
+		return (ERR);
 	return (OK);
 }
 
-void cut_line(char *line)
+static void cut_line(char *line)
 {
 	t_parsing	*ptr;
 	static int	call;

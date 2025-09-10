@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 16:25:04 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:01:45 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,11 @@ char	*buff_str(char *str);
 // FUNCTIONS
 int	    	is_cub_file(char *path);
 int			parse_input(char *path);
+int			word_search(char *str, char *need);
 int			read_map(char *path);
 int 		config_raw(char *raw);
 int			is_overflow(char *str, int i);
+int 		is_valid_file(char *path);
 int			is_empty(char *str);
 int			is_space(int c);
 t_data		*data_g(void);
