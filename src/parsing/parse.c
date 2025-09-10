@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 11:08:07 by zajaddou         ###   ########.fr       */
+/*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/10 12:24:35 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
+#include "../../includes/cub3d.h"
 
-# define WIN_W 1080
-# define WIN_H 720
-# define GET -1
-# define ERR 1
-# define OK 0
-# define BUFFER_SIZE 1024
+int	parse_input(char *path)
+{
+	t_map	*map;
 
-# endif
+	map = map_g();
+	if (is_cub_file(path) == ERR)
+		return (ERR);
+	if (read_map(path))
+		return (ERR);
+
+    //printf("%s", map->raw);
+	return (OK);
+}

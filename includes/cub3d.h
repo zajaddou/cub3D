@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 17:38:01 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:23:05 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,9 @@ typedef struct s_data
 
 typedef struct s_map
 {
-	int			fd;
-	int			line_count;
-	char		*path;
-	char		**file;
-	int			height;
-	int			width;
+	char		*raw;
+	int			h;
+	int			w;
 }	t_map;
 
 // GLOBAL
@@ -52,10 +49,15 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*get_next_line(int fd);
 void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *s);
+char	*buff_ch(int c);
+char	*buff_str(char *str);
 
 // FUNCTIONS
 int	    is_cub_file(char *path);
 int     is_xpm_file(char *path);
+int		parse_input(char *path);
+int		read_map(char *path);
 t_data	*data_g(void);
+t_map	*map_g(void);
 
 #endif

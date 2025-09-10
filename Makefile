@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/09 17:34:33 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/10 12:23:35 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,9 @@ NAME    = cub3D
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror 
 
-BONUS = 0
-
 SRC =  \
 		./lib/ft_putstr_fd.c \
+		./lib/ft_buffer.c \
 		./lib/ft_strjoin.c \
 		./lib/ft_strchr.c \
 		./lib/ft_strncpy.c \
@@ -25,16 +24,15 @@ SRC =  \
 		./lib/ft_strlen.c \
 		./lib/ft_getline.c \
 		./src/parsing/files.c \
+		./src/parsing/static.c \
+		./src/parsing/parse.c \
 		./src/global.c \
 		./src/more.c \
-		./src/parsing/static.c \
+
 
 OBJ_M = $(SRC:.c=.o)
 
 all: $(NAME)
-
-bonus:
-	make all BONUS=1
 
 $(NAME): main.o $(OBJ_M)
 	@$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit

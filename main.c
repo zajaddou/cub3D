@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 17:28:27 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:23:53 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,9 @@ void	init_window(void)
 	return ;
 }
 
-int	parse_input(char *path)
-{
-	if (is_cub_file(path) == ERR)
-		return (ERR);
-	return (OK);
-}
-
 int	main(int ac, char **av)
 {
-	t_data *data;
+	t_data	*data;
 	
 	data = data_g();
 	logo();
@@ -39,7 +32,7 @@ int	main(int ac, char **av)
 		return (error("Invalid input !"), 1);
 	if (parse_input(av[1]))
 		return (ERR);
-	init_window();
-	mlx_loop(data->mlx);
+	//init_window();
+	//mlx_loop(data->mlx);
 	return (OK);
 }

@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/09 15:47:01 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:21:15 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,25 @@ int	is_xpm_file(char *path)
 	if (fd == -1)
 		return (error("Cannot open file ( .xpm )"), ERR);
 	close(fd);
+	return (OK);
+}
+
+int		read_map(char *path)
+{
+	int 	fd;
+	char	*line;
+	t_map	*map;
+
+	map = map_g();
+	fd = open(path, O_RDONLY);
+	line = get_next_line(fd);
+	if (!line)
+		return (error("Empty file ( .cub )"), ERR);
+	while (line)
+	{
+		buff_str(line);
+		line = get_next_line(fd);
+	}
+	map->raw = buff_ch(GET);
 	return (OK);
 }
