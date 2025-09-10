@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/10 12:23:35 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/10 13:47:39 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,14 @@ SRC =  \
 		./lib/ft_strchr.c \
 		./lib/ft_strncpy.c \
 		./lib/ft_strdup.c \
+		./lib/ft_simple.c \
 		./lib/ft_strlen.c \
 		./lib/ft_getline.c \
 		./src/parsing/files.c \
 		./src/parsing/static.c \
 		./src/parsing/parse.c \
-		./src/global.c \
-		./src/more.c \
+		./global/global.c \
+		./global/more.c \
 
 
 OBJ_M = $(SRC:.c=.o)

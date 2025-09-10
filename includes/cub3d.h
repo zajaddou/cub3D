@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 12:23:05 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/10 13:49:14 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ int	    is_cub_file(char *path);
 int     is_xpm_file(char *path);
 int		parse_input(char *path);
 int		read_map(char *path);
+int		is_overflow(char *str, int i);
+int		is_empty(char *str);
+int		is_space(int c);
 t_data	*data_g(void);
 t_map	*map_g(void);
 
