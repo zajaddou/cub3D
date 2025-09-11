@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 10:21:38 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 10:58:17 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	error(char *str);
 void	logo(void);
 
 // LIB
+int		ft_isdigit(int c);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);

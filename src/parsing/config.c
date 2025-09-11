@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 10:24:05 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 11:00:46 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,22 @@ char *cut_config(char *str, char *tag)
 	return (NULL);
 }
 
-int config_raw(char *raw)
+int	is_valid_rgb(char *rgb)
+{
+	int	i;
+
+	i = -1;
+	while (rgb[++i])
+		if (!ft_isdigit(rgb[i]) && rgb[i] != ',')
+			return (error("Incorrect config ( RGB )"), ERR);
+	return (OK);
+}
+
+int	extract_config(char *raw)
 {
 	t_parsing *ptr;
 
 	ptr = parsing_g();
-	if (!word_search(raw, "NO ") || !word_search(raw, "SO ")
-		|| !word_search(raw, "WE ") || !word_search(raw, "EA ")
-		|| !word_search(raw, "F ") || !word_search(raw, "C "))
-		return (error("incorrect config ( .cub )"), ERR);
 	ptr->config[0] = cut_config(raw, "NO");
 	if (is_xpm_file(ptr->config[0]))
 		return (ERR);
@@ -77,8 +84,26 @@ int config_raw(char *raw)
 	if (is_xpm_file(ptr->config[3]))
 		return (ERR);
 	ptr->config[4] = cut_config(raw, "F ");
+	if(is_valid_rgb(ptr->config[4]))
+		return (ERR);
 	ptr->config[5] = cut_config(raw, "C ");
+	if(is_valid_rgb(ptr->config[5]))
+		return (ERR);
+	return (OK);
+}
+
+int config_raw(char *raw)
+{
+	if (!word_search(raw, "NO ") || !word_search(raw, "SO ")
+		|| !word_search(raw, "WE ") || !word_search(raw, "EA ")
+		|| !word_search(raw, "F ") || !word_search(raw, "C "))
+		return (error("Incorrect config ( .cub )"), ERR);
+
+	if (extract_config(raw))
+		return (ERR);
+		
 	print_config();
+
 	return (OK);
 }
 
