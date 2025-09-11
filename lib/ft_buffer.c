@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer.c                                           :+:      :+:    :+:   */
+/*   ft_buffer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:47:25 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 14:07:25 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:04:52 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,13 @@ char	*buff_str(char *str)
 	return (NULL);
 }
 
+char	*buff_dup(int c, int dup)
+{
+	dup++;
+	if (c >= 0)
+		while (--dup > 0)
+			buff_ch(c);
+	else
+		return (buff_ch(GET));
+	return (NULL);
+}

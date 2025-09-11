@@ -6,13 +6,13 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 12:33:22 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:34:47 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void print_config()
+void print_config(void)
 {
 	t_parsing *ptr;
 	
@@ -136,8 +136,6 @@ int config_raw(char *raw)
 	if (extract_config(raw))
 		return (ERR);
 		
-	print_config();
-
 	return (OK);
 }
 

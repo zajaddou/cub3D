@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 14:15:37 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:05:04 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,13 @@ typedef struct s_map
 }	t_map;
 
 // GLOBAL
+
 void	error(char *str);
 void	logo(void);
 
 // LIB
 
+char	*buff_dup(int c, int dup);
 int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 int		ft_isdigit(int c);
@@ -67,6 +69,8 @@ char	*buff_ch(int c);
 char	*buff_str(char *str);
 
 // FUNCTIONS
+
+void 		print_config(void);
 int	    	is_cub_file(char *path);
 int			is_xpm_file(char *path);
 int			parse_input(char *path);
