@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 11:55:03 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:00:05 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void print_config()
 	
 	ptr = parsing_g();
 	printf("\n       -- config --\n\n");
-	printf("NO : %s\n", ptr->config[0]);
-	printf("SO : %s\n", ptr->config[1]);
-	printf("WE : %s\n", ptr->config[2]);
-	printf("EA : %s\n", ptr->config[3]);
-	printf("F  : %s\n", ptr->config[4]);
-	printf("C  : %s\n\n", ptr->config[5]);
+	printf("NO | %s\n", ptr->config[0]);
+	printf("SO | %s\n", ptr->config[1]);
+	printf("WE | %s\n", ptr->config[2]);
+	printf("EA | %s\n\n", ptr->config[3]);
+	printf("F  | %s\n", ptr->config[4]);
+	printf("C  | %s\n\n", ptr->config[5]);
 }
 
 char *cut_to_end(char *str, int rm_space)
