@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/11 10:58:30 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/11 12:04:50 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC =  \
 	./lib/ft_buffer.c \
 	./lib/ft_search.c \
 	./lib/ft_strjoin.c \
+	./lib/ft_split.c \
 	./lib/ft_strchr.c \
 	./lib/ft_strncpy.c \
 	./lib/ft_strdup.c \
