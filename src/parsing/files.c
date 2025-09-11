@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 19:19:53 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 10:21:19 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,12 @@ int	is_valid_file(char *path)
 	fd = open(path, O_DIRECTORY);
 	if (fd >= 0)
 		return (close(fd), error("Path is a directory"), ERR);
-
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return (error("Cannot open file"), ERR);
-
 	res = read(fd, buff, sizeof(buff));
 	if (res <= 0)
 		return (close(fd), error("Empty file"), ERR);
-
 	close(fd);
 	return (OK);
 }
@@ -46,6 +43,23 @@ int	is_cub_file(char *path)
 	if (!(path[len - 4] == '.' && path[len - 3] == 'c' 
 			&& path[len - 2] == 'u' && path[len - 1] == 'b'))
 		return (error("Not a .cub file"), ERR);
+	if (is_valid_file(path) == ERR)
+		return (ERR);
+	return (OK);
+}
+
+int	is_xpm_file(char *path)
+{
+	int	len;
+
+	if (is_valid_file(path) == ERR)
+		return (ERR);
+	len = ft_strlen(path);
+	if (len < 4)
+		return (error("Not a .xpm file"), ERR);
+	if (!(path[len - 4] == '.' && path[len - 3] == 'x' 
+			&& path[len - 2] == 'p' && path[len - 1] == 'm'))
+		return (error("Not a .xpm file"), ERR);
 	if (is_valid_file(path) == ERR)
 		return (ERR);
 	return (OK);

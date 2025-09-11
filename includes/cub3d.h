@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 19:01:45 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 10:21:38 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@
 
 typedef struct parsing
 {
-	char		*texture_path[4];
+	char		*config[6];
 	char		*raw_config;
 	char		*raw_map;
 }	t_parsing;
+
+
 
 typedef struct s_data 
 {
@@ -60,6 +62,7 @@ char	*buff_str(char *str);
 
 // FUNCTIONS
 int	    	is_cub_file(char *path);
+int			is_xpm_file(char *path);
 int			parse_input(char *path);
 int			word_search(char *str, char *need);
 int			read_map(char *path);
