@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 11:00:46 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 11:55:03 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void print_config()
 	printf("C  : %s\n\n", ptr->config[5]);
 }
 
-char *cut_to_end(char *str)
+char *cut_to_end(char *str, int rm_space)
 {
 	str+= 2;
 	if (*str == ' ' || *str == '\t')
@@ -35,34 +35,49 @@ char *cut_to_end(char *str)
 	{
 		if (*str == '\n' || *str == '\0')
 			return (buff_ch(GET));
-		buff_ch(*str);
+		if (rm_space)
+		{
+			if (*str != ' ')
+				buff_ch(*str);
+		}
+		else
+			buff_ch(*str);
 		str++;
 	}
 	return (NULL);
 }
 
-char *cut_config(char *str, char *tag)
+char *cut_config(char *str, char *tag, int rm_space)
 {
 	int	i;
 
 	i = -1;
 	while (str[++i])
-	{
 		if (str[i] == tag[0])
 			if (!is_overflow(str, i+1) && str[i+1] == tag[1])
-				return (cut_to_end(&str[i]));	
-	}
+				return (cut_to_end(&str[i], rm_space));	
 	return (NULL);
 }
 
 int	is_valid_rgb(char *rgb)
 {
 	int	i;
+	int	cut;
 
 	i = -1;
+	cut = 0;
 	while (rgb[++i])
+	{
+		if (rgb[i] == ' ')
+			continue;
 		if (!ft_isdigit(rgb[i]) && rgb[i] != ',')
-			return (error("Incorrect config ( RGB )"), ERR);
+			return (ERR);
+		if (rgb[i] == ',' && ++cut)
+			if (!ft_isdigit(rgb[i-1]) || !ft_isdigit(rgb[i+1]))
+				return (ERR);
+	}
+	if (cut != 2)
+		return (ERR);
 	return (OK);
 }
 
@@ -71,24 +86,20 @@ int	extract_config(char *raw)
 	t_parsing *ptr;
 
 	ptr = parsing_g();
-	ptr->config[0] = cut_config(raw, "NO");
-	if (is_xpm_file(ptr->config[0]))
+	ptr->config[0] = cut_config(raw, "NO", 0);
+	ptr->config[1] = cut_config(raw, "SO", 0);
+	ptr->config[2] = cut_config(raw, "WE", 0);
+	ptr->config[3] = cut_config(raw, "EA", 0);
+	ptr->config[4] = cut_config(raw, "F ", 1);
+	ptr->config[5] = cut_config(raw, "C ", 1);
+	if (is_xpm_file(ptr->config[0]) || is_xpm_file(ptr->config[1]))
 		return (ERR);
-	ptr->config[1] = cut_config(raw, "SO");
-	if (is_xpm_file(ptr->config[1]))
+	if (is_xpm_file(ptr->config[2]) || is_xpm_file(ptr->config[3]))
 		return (ERR);
-	ptr->config[2] = cut_config(raw, "WE");
-	if (is_xpm_file(ptr->config[2]))
-		return (ERR);
-	ptr->config[3] = cut_config(raw, "EA");
-	if (is_xpm_file(ptr->config[3]))
-		return (ERR);
-	ptr->config[4] = cut_config(raw, "F ");
-	if(is_valid_rgb(ptr->config[4]))
-		return (ERR);
-	ptr->config[5] = cut_config(raw, "C ");
-	if(is_valid_rgb(ptr->config[5]))
-		return (ERR);
+	if (is_valid_rgb(ptr->config[4]))
+		return (error("Incorrect config ( RGB )"), ERR);
+	if (is_valid_rgb(ptr->config[5]))
+		return (error("Incorrect config ( RGB )"), ERR);
 	return (OK);
 }
 

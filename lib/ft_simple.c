@@ -6,11 +6,24 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 15:23:50 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 18:56:07 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 11:42:35 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+char *rm_spaces(char *str)
+{
+	int	i;
+
+	i = -1;
+	if (!str)
+		return (NULL);
+	while (str[++i])
+		if (str[i] != ' ')
+			buff_ch(str[i]);
+	return (buff_ch(GET));
+}
 
 int	is_space(int c)
 {
