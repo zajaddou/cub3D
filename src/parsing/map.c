@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 12:36:45 by zajaddou         ###   ########.fr       */
+/*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/11 12:37:03 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	parse_input(char *path)
+int map_raw(char *raw)
 {
-	t_parsing	*ptr;
+    printf("      -- cub3D map --\n\n%s", raw);
 
-	ptr = parsing_g();
-	
-	if (is_cub_file(path) == ERR)
-		return (ERR);
-
-	if (read_map(path))
-		return (ERR);
-
-	if (config_raw(ptr->raw_config))
-		return (ERR);
-
-	if (map_raw(ptr->raw_map))
-		return (ERR);
-
-	return (OK);
+    return (OK);
 }

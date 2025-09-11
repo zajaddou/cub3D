@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 12:16:16 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:36:17 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int			parse_input(char *path);
 int			word_search(char *str, char *need);
 int			read_map(char *path);
 int 		config_raw(char *raw);
+int 		map_raw(char *raw);
 char 		*rm_spaces(char *str);
 int			is_overflow(char *str, int i);
 int 		is_valid_file(char *path);

@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 12:16:52 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:33:22 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,25 @@ int	is_valid_rgb(char *rgb)
 	return (OK);
 }
 
-int	rgb_check()
+int	rgb_check(char *rgb)
 {
+	int			nbr;
+	int			i;
 	t_parsing	*ptr;
 	char		**split;
 
 	ptr = parsing_g();
-	split = ft_split(ptr->config[4], ',');
-	printf("\n Part 1 : %s\n", ft_atoi(split[0]));
+	split = ft_split(rgb, ',');
+	if (!split)
+		return (error("Split"), ERR);
+	i = -1;
+	while (++i <= 2)
+	{
+		nbr = ft_atoi(split[i]);
+		if (!(nbr >= 0 && nbr <= 255))
+			return (error("Incorrect config ( RGB )"), ERR);
+	}
+	return (OK);
 }
 
 int	extract_config(char *raw)
@@ -110,8 +121,8 @@ int	extract_config(char *raw)
 		return (error("Incorrect config ( RGB )"), ERR);
 	if (is_valid_rgb(ptr->config[5]))
 		return (error("Incorrect config ( RGB )"), ERR);
-
-	rgb_check();
+	if (rgb_check(ptr->config[4]) || rgb_check(ptr->config[5]))
+		return (ERR);
 	return (OK);
 }
 
