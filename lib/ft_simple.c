@@ -6,11 +6,18 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 15:23:50 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 11:42:35 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:15:23 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int	or(int main, int b, int c)
+{
+	if (main == c || b == c)
+		return (1);
+	return (0);
+}
 
 char *rm_spaces(char *str)
 {
