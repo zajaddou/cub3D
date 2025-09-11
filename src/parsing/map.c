@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 12:37:03 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:32:21 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int map_raw(char *raw)
 {
-    printf("      -- cub3D map --\n\n%s", raw);
+    printf("      -- cub3D map --\n\n%s\n", raw);
+    
+    
 
     return (OK);
 }
