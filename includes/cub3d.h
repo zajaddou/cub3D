@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 15:05:04 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:51:32 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct parsing
 }	t_parsing;
 
 
-
 typedef struct s_data 
 {
 	void		*mlx;
@@ -41,6 +40,7 @@ typedef struct s_data
 
 typedef struct s_map
 {
+	char		**map;
 	int			h;
 	int			w;
 }	t_map;
@@ -71,6 +71,7 @@ char	*buff_str(char *str);
 // FUNCTIONS
 
 void 		print_config(void);
+void 		print_map(void);
 int	    	is_cub_file(char *path);
 int			is_xpm_file(char *path);
 int			parse_input(char *path);
