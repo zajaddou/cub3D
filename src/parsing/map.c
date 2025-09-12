@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 13:54:52 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:45:33 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void print_map(void)
     int     i;
 
     map = map_g();
-    printf("      -- cub3D map --\n\n");
+    printf("      -- cub3D map --");
     i = -1;
     while (map->map[++i] != NULL)
         printf("%s\n", map->map[i]);
-    printf("\nhight = %d\n", map->h);
+    printf("hight = %d\n", map->h);
     printf("width = %d\n\n", map->w);
 }
 
@@ -79,10 +79,10 @@ char    *add_padding(char *raw, int size, char pad)
 
 	i = -1;
     s = -1;
-    buff_dup('x', size + 3);
-    buff_str("\nx");
+    buff_dup('\a', size + 3);
+    buff_str("\n\a");
     buff_dup(pad, size + 1);
-    buff_str("x\nx ");
+    buff_str("\a\n\a ");
 	while (raw[++i])
     {
         if (raw[i] != '\n')
@@ -92,12 +92,12 @@ char    *add_padding(char *raw, int size, char pad)
             if ((i - s) < size + 1)
                 buff_dup(pad, (size + 1 - (i - s)));
             s = i;
-            buff_str("x\nx ");
+            buff_str("\a\n\a ");
         }
     }
     buff_dup(pad, size);
-    buff_str("x\n");
-    buff_dup('x', size + 3);
+    buff_str("\a\n");
+    buff_dup('\a', size + 3);
     return (buff_ch(GET));
 }
     

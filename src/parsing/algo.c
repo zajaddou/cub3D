@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 13:39:45 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:40:18 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void map_algo(int x, int y)
     map = map_g();
     if (is_open(GET))
         return ;
-    if (map->map[x][y] == '1' || map->map[x][y] == '.' || map->map[x][y] == 'x')
+    if (map->map[x][y] == '1' || map->map[x][y] == '.' || map->map[x][y] == '\a')
         return ;
     if (map->map[x][y] == '0')
     {
