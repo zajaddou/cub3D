@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 14:02:43 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:53:47 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void handle_spaces(void)
 		while (map->map[i][++b])
 		{
 			if (map->map[i][b] == ' ')
-				map->map[i][b] = '1';
+				map->map[i][b] = '0';
 			if (map->map[i][b] == '.')
 				map->map[i][b] = ' ';
 		}
