@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 15:30:32 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:41:10 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,27 @@ void print_map(void)
 
 int scan_map(char *str)
 {
-	int	i;
+    int     i;
+    int     p;
+    char    c;
 
-	i = -1;
-	while (str[++i])
-		if (str[i] != ' ' && str[i] != '\n' && str[i] != 'N' && str[i] != 'S')
-            if (str[i] != 'E' && str[i] != 'W' && str[i] != '0' && str[i] !=  '1')
-			    return (error("invalid map character "), ERR);
+    p = 0;
     i = -1;
-	while (str[++i])
-		if (str[i] == 'N' || str[i] == 'S' || str[i] == 'E' || str[i] == 'W')
-            return (OK);
-	return (error("No player"), ERR);
+    while (str[++i])
+    {
+        c = str[i];
+        if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+            p++;
+        else if (c != '0' && c != '1' && c != ' ' && c != '\n')
+            return (error("invalid map character"), ERR);
+    }
+    if (p > 1)
+        return (error("multiple player positions"), ERR);
+    if (p == 0)
+        return (error("no player"), ERR);
+    return (OK);
 }
+
 
 int get_hight(char *str)
 {
