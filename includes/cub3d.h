@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 15:51:32 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 12:13:46 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,10 @@ char	*buff_str(char *str);
 
 // FUNCTIONS
 
+void 		algo(int x, int y);
 void 		print_config(void);
 void 		print_map(void);
+int			is_open(int io);
 int	    	is_cub_file(char *path);
 int			is_xpm_file(char *path);
 int			parse_input(char *path);

@@ -6,11 +6,20 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:26:54 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 14:55:05 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 12:13:32 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+int	is_open(int io)
+{
+	static int	on_off;
+
+	if (io != GET)
+		on_off = io;
+	return (on_off);
+}
 
 t_data	*data_g(void)
 {

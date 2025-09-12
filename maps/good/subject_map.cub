@@ -1,11 +1,10 @@
+NO textures/wolfenstein/grey_stone.xpm
+SO textures/wolfenstein/purple_stone.xpm
+WE textures/wolfenstein/red_brick.xpm
+EA textures/wolfenstein/wood.xpm
 
-NO ./textures/wall_north.xpm
-SO ./textures/wall_south.xpm
-WE ./textures/wall_west.xpm
-EA ./textures/wall_east.xpm
-
-F  220,100,60
-C  225,30,120
+F 220,100,0
+C 225,30,0
 
         1111111111111111111111111
         1000000000110000000000001

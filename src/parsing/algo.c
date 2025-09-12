@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 12:20:10 by zajaddou         ###   ########.fr       */
+/*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/09/12 12:18:24 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	parse_input(char *path)
+
+void algo(int x, int y)
 {
-	t_parsing	*ptr;
+    t_map *map;
 
-	ptr = parsing_g();
-	
-	if (is_cub_file(path) == ERR)
-		return (ERR);
-
-	if (read_map(path))
-		return (ERR);
-
-	if (config_raw(ptr->raw_config))
-		return (ERR);
-
-	if (map_raw(ptr->raw_map))
-		return (ERR);
-
-	algo(1, 1);
-
-	if (is_open(GET))
-		return (error("Not closed map"), ERR);
-	
-	print_config();
-	print_map();
-
-	return (OK);
+    map = map_g();
+    if (is_open(GET))
+        return ;
+    if (map->map[x][y] == '1' || map->map[x][y] == '.' || map->map[x][y] == 'x')
+        return ;
+    if (map->map[x][y] == '0')
+    {
+        is_open(1);
+        return ;
+    }
+    map->map[x][y] = '.';
+    algo(x, y+1);
+    algo(x, y-1);
+    algo(x+1, y);
+    algo(x-1, y);
 }

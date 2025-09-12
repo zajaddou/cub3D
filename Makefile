@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/11 12:36:31 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/09/12 11:32:53 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC =  \
 	./lib/ft_strlen.c \
 	./lib/get_next_line.c \
 	./src/parsing/config.c \
+	./src/parsing/algo.c \
 	./src/parsing/files.c \
 	./src/parsing/static.c \
 	./src/parsing/parse.c \
