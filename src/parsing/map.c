@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 14:45:33 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:28:27 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ int scan_map(char *str)
 	while (str[++i])
 		if (str[i] != ' ' && str[i] != '\n' && str[i] != 'N' && str[i] != 'S')
             if (str[i] != 'E' && str[i] != 'W' && str[i] != '0' && str[i] !=  '1')
-			    return (error("invalid map character"), ERR);	
-    return (OK);
+			    return (error("invalid map character"), ERR);
+    i = -1;
+	while (str[++i])
+		if (str[i] == 'N' || str[i] == 'S' || str[i] == 'E' || str[i] == 'W')
+            return (OK);
+	return (error("invalid character"), ERR);
 }
 
 int get_hight(char *str)
