@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 19:21:03 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 20:19:51 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ void	init_window(void)
 	data->win = mlx_new_window(data->mlx, WIN_W, WIN_H, "Cub3D");
 	return ;
 }
+void f(void)
+{
+	system("leaks cub3D");
+}
 
 int	main(int ac, char **av)
 {
 	t_data	*data;
+	f();
 	
 	data = data_g();
 	logo();
