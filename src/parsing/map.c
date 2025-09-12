@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 11:48:37 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 13:54:52 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int get_width(char *str)
     return (max);
 }
 
-
 char    *add_padding(char *raw, int size, char pad)
 {
     int	i;
@@ -104,8 +103,8 @@ char    *add_padding(char *raw, int size, char pad)
     
 int map_raw(char *raw)
 {
-    char *new_raw;
-    t_map *map;
+    char    *new_raw;
+    t_map   *map;
 
     map = map_g();
     if (scan_map(raw))
@@ -118,5 +117,3 @@ int map_raw(char *raw)
     map->map = ft_split(new_raw, '\n');
     return (OK);
 }
-
-

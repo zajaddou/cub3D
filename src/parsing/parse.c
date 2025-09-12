@@ -6,11 +6,33 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 12:20:10 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:02:43 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void handle_spaces(void)
+{
+	t_map   *map;
+	int		i;
+	int		b;
+	
+    map = map_g();
+	i = -1;
+	while (map->map[++i])
+	{
+		b = -1;
+		while (map->map[i][++b])
+		{
+			if (map->map[i][b] == ' ')
+				map->map[i][b] = '1';
+			if (map->map[i][b] == '.')
+				map->map[i][b] = ' ';
+		}
+	}
+}
+
 
 int	parse_input(char *path)
 {
@@ -30,11 +52,13 @@ int	parse_input(char *path)
 	if (map_raw(ptr->raw_map))
 		return (ERR);
 
-	algo(1, 1);
+	map_algo(1, 1);
 
 	if (is_open(GET))
-		return (error("Not closed map"), ERR);
-	
+		return (error("Invalid map ( open )"), ERR);
+
+	handle_spaces();
+
 	print_config();
 	print_map();
 
