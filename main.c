@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 20:19:51 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/09/20 10:34:36 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void f(void)
 int	main(int ac, char **av)
 {
 	t_data	*data;
-	f();
 	
 	data = data_g();
 	logo();
