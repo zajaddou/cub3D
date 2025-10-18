@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 14:53:47 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:04:27 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	parse_input(char *path)
 
 	if (config_raw(ptr->raw_config))
 		return (ERR);
-
+	
 	if (map_raw(ptr->raw_map))
 		return (ERR);
 

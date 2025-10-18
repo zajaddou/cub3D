@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 10:21:19 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:42:03 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	is_xpm_file(char *path)
 	return (OK);
 }
 
-static void cut_line(char *line)
+static void cut_line(char *line, int *map_part)
 {
 	t_parsing	*ptr;
 	static int	call;
@@ -86,25 +86,33 @@ static void cut_line(char *line)
 	else
 		buff_str(line);
 	if (call == 6)
+	{
 		ptr->raw_config = buff_ch(GET);
+		*map_part = 1;
+	}
 }
 
 int		read_map(char *path)
 {
 	int			fd;
+	int			map_part;
+	
 	char		*line;
 	t_parsing	*ptr;
 
+	map_part = 0;
 	ptr = parsing_g();
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (!is_empty(line))
-			cut_line(line);
+		if (map_part || !is_empty(line))
+			cut_line(line, &map_part);
 		line = get_next_line(fd);
 	}
 	ptr->raw_map = buff_ch(GET);
+	printf("%s\n", ptr->raw_map);
+	exit(0);
 	close(fd);
 	return (OK);
 }
