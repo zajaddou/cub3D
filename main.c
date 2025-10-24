@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/24 16:03:54 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:08:23 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@ void	init_window(void)
 int	main(int ac, char **av)
 {
 	t_data	*data;
+	t_map   *map;
 	
 	data = data_g();
+	map = map_g();
 	logo();
 	if (ac != 2)
 		return (error("Invalid input !"), 1);
 	if (parse_input(av[1]))
 		return (ERR);
+
+	printf("%d\n", map->h);
+	printf("%d\n", map->w);
+	printf("map [%s]\n", map->map[1]);
+	
 	//init_window();
 	//mlx_loop(data->mlx);
 	return (OK);
