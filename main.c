@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/24 16:11:20 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:13:16 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 	t_map   *map;
+	t_player   *player;
 	
 	data = data_g();
 	map = map_g();
+	player = player_g();
 	logo();
 	if (ac != 2)
 		return (error("Invalid input !"), 1);

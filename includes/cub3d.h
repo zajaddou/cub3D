@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/23 12:20:25 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:14:49 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_free(void *ptr, int flag);
 void	error(char *str);
 void	logo(void);
 
+
 // LIB
 
 char	*buff_dup(int c, int dup);
@@ -95,8 +96,11 @@ int			is_overflow(char *str, int i);
 int 		is_valid_file(char *path);
 int			is_empty(char *str);
 int			is_space(int c);
+
+// GLOBAL 
 t_data		*data_g(void);
 t_map		*map_g(void);
 t_parsing	*parsing_g(void);
+t_player 	*player_g(void);
 
 #endif
