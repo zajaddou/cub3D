@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:24:17 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 14:07:25 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/23 12:23:48 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (ft_strdup(s1));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	all_str = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
+	all_str = (char *)ft_malloc((s1_len + s2_len + 1) * sizeof(char));
 	if (!all_str)
 		return (NULL);
 	copy_strings(all_str, s1, s2);

@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:47:25 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 15:04:52 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/23 12:24:41 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*buff_ch(int c)
 
 	if (c >= 0)
 	{
-		new = malloc(sizeof(char) * 2);
+		new = ft_malloc(sizeof(char) * 2);
 		new[0] = c;
 		new[1] = '\0';
 		buff = ft_strjoin(buff, new);

@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/20 14:21:51 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:11:28 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,18 @@ static void cut_line(char *line, int *map_part)
 	}
 }
 
-// void map_check()
-// {
-// 	printf("%s\n", ptr->raw_map);
-// }
+void map_check(char *str)
+{
+		exit(0);
+	int i = -1;
+	while (str[++i])
+	{
+		if (str[i] == '\n' && str[i+1] == '\n')
+			exit(1);
+	}
+	printf("%s\n", str);
+	exit(0);
+}
 
 int		read_map(char *path)
 {
@@ -116,6 +124,12 @@ int		read_map(char *path)
 		line = get_next_line(fd);
 	}
 	ptr->raw_map = buff_ch(GET);
+	if (!ptr->raw_map)
+		return (error("map not included !"), 1);
+	
+	// printf("%s\n", ptr->raw_map);
+
+	// map_check(ptr->raw_map);
 	
 	close(fd);
 	return (OK);

@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:04:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 12:05:02 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/23 12:25:24 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	**split_set(char const *str, char c, char **dest, int c_words)
 			si++;
 			wl++;
 		}
-		dest[wi] = (char *)malloc((wl + 1) * sizeof(char));
+		dest[wi] = (char *)ft_malloc((wl + 1) * sizeof(char));
 		if (!dest[wi])
 			return (free_array(dest, wi));
 		ft_set(dest[wi], str, (si - wl), wl);
@@ -92,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	size_t	c_words;
 
 	c_words = count_word(s, c);
-	dest = (char **)malloc((c_words + 1) * sizeof(char *));
+	dest = (char **)ft_malloc((c_words + 1) * sizeof(char *));
 	if (!dest)
 		return (NULL);
 	return (split_set(s, c, dest, c_words));

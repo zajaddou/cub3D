@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/21 14:49:04 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/23 12:20:25 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_player
 
 // GLOBAL
 
+void	*ft_malloc(size_t size);
+void	ft_free(void *ptr, int flag);
 void	error(char *str);
 void	logo(void);
 

@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/09/12 20:20:09 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/10/23 12:20:47 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS  = -Wall -Wextra -Werror #-g3 -fsanitize=address
 
 SRC =  \
 	./global/global.c \
+	./global/ft_free.c \
 	./global/more.c \
 	./lib/ft_atoi.c \
 	./lib/ft_putstr_fd.c \

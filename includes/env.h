@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/10 15:15:20 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/23 10:45:57 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,8 @@
 # define ERR 1
 # define OK 0
 # define BUFFER_SIZE 1024
+
+# define ADD = 1
+# define FREE = -1
 
 # endif
