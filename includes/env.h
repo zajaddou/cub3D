@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef ENV_H
+#define ENV_H
 
 # define WIN_W 1080
 # define WIN_H 720
@@ -19,7 +20,12 @@
 # define OK 0
 # define BUFFER_SIZE 1024
 
-# define ADD = 1
-# define FREE = -1
+# define ADD  1
+# define FREE  -1
+
+#define PI 3.14159265359
+#define FOV (60 * (PI / 180))
+#define TILE 64
+#define NUM_RAYS WIN_W
 
 # endif

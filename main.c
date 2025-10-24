@@ -36,7 +36,8 @@ int	main(int ac, char **av)
 		return (error("Invalid input !"), 1);
 	if (parse_input(av[1]))
 		return (ERR);
-	init_window();
+	init_window();      
+	raycasting();
 	//mlx_loop(data->mlx);
 	return (OK);
 }
