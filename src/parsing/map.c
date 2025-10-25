@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 15:41:10 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/25 20:39:31 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ void print_map(void)
     int     i;
 
     map = map_g();
-    printf("      -- cub3D map --");
+    printf("      -- cub3D map --\n\n");
     i = -1;
     while (map->map[++i] != NULL)
         printf("%s\n", map->map[i]);
+    printf("\n");
     printf("hight = %d\n", map->h);
     printf("width = %d\n\n", map->w);
 }
@@ -91,10 +92,7 @@ char    *add_padding(char *raw, int size, char pad)
 
 	i = -1;
     s = -1;
-    buff_dup('\a', size + 3);
-    buff_str("\n\a");
-    buff_dup(pad, size + 1);
-    buff_str("\a\n\a ");
+    buff_str(" ");
 	while (raw[++i])
     {
         if (raw[i] != '\n')
@@ -104,15 +102,14 @@ char    *add_padding(char *raw, int size, char pad)
             if ((i - s) < size + 1)
                 buff_dup(pad, (size + 1 - (i - s)));
             s = i;
-            buff_str("\a\n\a ");
+            buff_str("\n ");
         }
     }
     buff_dup(pad, size);
-    buff_str("\a\n");
-    buff_dup('\a', size + 3);
+    buff_str("\n");
     return (buff_ch(GET));
 }
-    
+
 int map_raw(char *raw)
 {
     char    *new_raw;
@@ -125,7 +122,7 @@ int map_raw(char *raw)
     map->w = get_width(raw);
     new_raw = add_padding(raw, map->w+1, ' ');
     map->w+=2;
-    map->h+=2;
+    map->h+=1;
     map->map = ft_split(new_raw, '\n');
     return (OK);
 }

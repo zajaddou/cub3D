@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/20 16:11:28 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/25 20:46:04 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,24 +92,37 @@ static void cut_line(char *line, int *map_part)
 	}
 }
 
-void map_check(char *str)
+void format_map(t_parsing	*ptr)
 {
-		exit(0);
-	int i = -1;
-	while (str[++i])
+	char		*str;
+	int 		e;
+	int			s;
+	
+	str = ptr->raw_map;
+	e = ft_strlen(str);
+	s = -1;
+	while (str[++s] && str[s] == '\n');
+	while (str[--e] && str[e] == '\n');
+	buff_ch('\n');
+	while (str[s] && s <= e)
 	{
-		if (str[i] == '\n' && str[i+1] == '\n')
+		if (s >= 1 && (str[s] == '\n' && str[s-1] == '\n'))
+		{
+			error("newline inside map");
 			exit(1);
+		}
+		buff_ch(str[s]);
+		s++;
 	}
-	printf("%s\n", str);
-	exit(0);
+	buff_ch('\n');
+	ft_free(ptr->raw_map, 1);
+	ptr->raw_map = buff_ch(GET);
 }
 
-int		read_map(char *path)
+int		read_cub(char *path)
 {
 	int			fd;
 	int			map_part;
-	
 	char		*line;
 	t_parsing	*ptr;
 
@@ -123,14 +136,10 @@ int		read_map(char *path)
 			cut_line(line, &map_part);
 		line = get_next_line(fd);
 	}
+	close(fd);
 	ptr->raw_map = buff_ch(GET);
 	if (!ptr->raw_map)
 		return (error("map not included !"), 1);
-	
-	// printf("%s\n", ptr->raw_map);
-
-	// map_check(ptr->raw_map);
-	
-	close(fd);
+	format_map(ptr);
 	return (OK);
 }

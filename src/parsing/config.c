@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/11 14:34:47 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/25 20:45:56 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,11 +132,8 @@ int config_raw(char *raw)
 		|| !word_search(raw, "WE ") || !word_search(raw, "EA ")
 		|| !word_search(raw, "F ") || !word_search(raw, "C "))
 		return (error("Incorrect config ( .cub )"), ERR);
-
 	if (extract_config(raw))
 		return (ERR);
-		
+
 	return (OK);
 }
-
-
