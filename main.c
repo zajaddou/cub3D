@@ -27,7 +27,9 @@ int	main(int ac, char **av)
 	t_data		*data;
 	t_player    *player;
 	t_map   	*map;
+	t_mlx mlx_strct;
 	
+	mlx_strct = mlx
 	data = data_g();
 	map = map_g();
 	player = player_g();

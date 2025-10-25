@@ -27,5 +27,7 @@
 #define FOV (60 * (PI / 180))
 #define TILE 64
 #define NUM_RAYS WIN_W
+#define increment_angle FOV / NUM_RAYS
+
 
 # endif

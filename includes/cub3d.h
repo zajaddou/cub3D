@@ -22,6 +22,18 @@
 # include <fcntl.h>
 # include <limits.h>
 
+
+
+
+
+
+
+
+
+
+
+
+
 typedef struct parsing
 {
 	char		*config[6];
@@ -102,5 +114,59 @@ t_data		*data_g(void);
 t_map		*map_g(void);
 t_parsing	*parsing_g(void);
 t_player 	*player_g(void);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// hadchi mat9isoch wla ghadi nikk
+
+
+t_mlx *mlx_g(void)
+
+
+
+typedef struct s_rays
+{
+	double ray_angle;
+	double wall_hit_x;
+	double wall_hit_y;
+	double distance;
+	int    hit_vertical;
+	int    facing_up;
+	int    facing_down;
+	int    facing_left;
+	int    facing_right;
+}t_rays;
+
+
+typedef struct s_mlx
+{
+    t_data data;
+    t_map   map;
+    t_player player;
+	t_ray     rays[1080];
+
+}t_mlx;
 
 #endif
