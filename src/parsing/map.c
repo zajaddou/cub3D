@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 20:39:31 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/25 21:57:28 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,21 @@
 void print_map(void)
 {
     t_map   *map;
+    t_player   *player;
     int     i;
 
     map = map_g();
+    player = player_g();
     printf("      -- cub3D map --\n\n");
     i = -1;
     while (map->map[++i] != NULL)
         printf("%s\n", map->map[i]);
     printf("\n");
-    printf("hight = %d\n", map->h);
-    printf("width = %d\n\n", map->w);
+    printf("Map : [ hight ] = %d\n", map->h);
+    printf("Map : [ width ] = %d\n", map->w);
+    
+    printf("\nPlayer   | W:%.1f H:%.1f", ((float)player->x / TILE_SIZE), ((float)player->y / TILE_SIZE));
+    printf("\nPosition | X:%d Y:%d\n\n", player->x, player->y);
 }
 
 int scan_map(char *str)
@@ -49,7 +54,6 @@ int scan_map(char *str)
         return (error("no player"), ERR);
     return (OK);
 }
-
 
 int get_hight(char *str)
 {

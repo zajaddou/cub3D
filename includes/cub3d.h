@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 21:03:04 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/25 22:10:59 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	float		x;
-	float		y;
-	float		view;
+	int		x;
+	int		y;
+	float	angle;
 } t_player;
 
 // GLOBAL
