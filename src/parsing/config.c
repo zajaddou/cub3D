@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 11:06:13 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:12:47 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,8 @@ int	rgb_check(char *rgb)
 	}
 	return (OK);
 }
-#include <math.h>
 
-int color(char *str)
+int color_math(char *str)
 {
 	char **rgb = ft_split(str, ',');
 	int r;
@@ -139,8 +138,8 @@ int	extract_config(char *raw)
 	if (rgb_check(ptr->config[4]) || rgb_check(ptr->config[5]))
 		return (ERR);
 		
-	map_g()->f_color = color(ptr->config[4]);
-	map_g()->c_color = color(ptr->config[5]);
+	map_g()->f_color = color_math(ptr->config[4]);
+	map_g()->c_color = color_math(ptr->config[5]);
 
 	return (OK);
 }
