@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   static.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:26:54 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 10:03:11 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:51:08 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,11 @@ t_parsing	*parsing_g(void)
 	static t_parsing	parsing;
 
 	return (&parsing);
+}
+
+t_window *window_g(void)
+{
+	static t_window	window_d;
+
+	return (&window_d);
 }

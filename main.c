@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 11:19:19 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/26 13:15:22 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int	main(int ac, char **av)
 		return (ERR);
 
 	init_window();
+	
+	mlx_loop_hook(window_g()->mlx, render_frame, window_g());
+	
+	mlx_loop(window_g()->mlx);
 
 	return (OK);
 }

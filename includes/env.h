@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 20:49:20 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:55:03 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #define FOV (60 * (PI / 180))
 #define TILE 64
 #define NUM_RAYS WIN_W
-#define increment_angle FOV / NUM_RAYS
+#define INCREMENT FOV / NUM_RAYS
 
 
 # endif

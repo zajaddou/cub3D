@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
+#    By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/10/25 19:45:26 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/10/26 13:32:37 by mgarouj          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,11 @@ SRC =  \
 	./src/parsing/static.c \
 	./src/parsing/parse.c \
 	./src/parsing/map.c \
+	./raycasting/window_init.c\
+	./raycasting/raycasting_part.c\
+	./raycasting/render_background.c\
+	
+	
 
 OBJ_M = $(SRC:.c=.o)
 
