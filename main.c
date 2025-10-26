@@ -27,7 +27,9 @@ int	main(int ac, char **av)
 	t_data		*data;
 	t_player    *player;
 	t_map   	*map;
+	t_mlx mlx_strct;
 	
+	mlx_strct = mlx
 	data = data_g();
 	map = map_g();
 	player = player_g();
@@ -37,7 +39,8 @@ int	main(int ac, char **av)
 		return (error("Invalid input !"), 1);
 	if (parse_input(av[1]))
 		return (ERR);
-	init_window();
+	init_window();      
+	raycasting();
 	//mlx_loop(data->mlx);
 	return (OK);
 }
