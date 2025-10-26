@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 10:37:51 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:40:04 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ t_player 	*player_g(void);
 // hadchi mat9isoch wla ghadi nikk
 
 
-t_mlx *mlx_g(void)
+t_mlx *mlx_g(void);
 
 
 
