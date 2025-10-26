@@ -6,41 +6,21 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/24 23:13:31 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:38:44 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-void	init_window(void)
-{
-	t_data *data;
-	
-	data = data_g();
-	data->mlx = mlx_init();
-	data->win = mlx_new_window(data->mlx, WIN_W, WIN_H, "Cub3D");
-	return ;
-}
-
 int	main(int ac, char **av)
 {
-	t_data		*data;
-	t_player    *player;
-	t_map   	*map;
-	t_mlx mlx_strct;
-	
-	mlx_strct = mlx
-	data = data_g();
-	map = map_g();
-	player = player_g();
-	
 	logo();
+	
 	if (ac != 2)
 		return (error("Invalid input !"), 1);
+
 	if (parse_input(av[1]))
 		return (ERR);
-	init_window();      
-	raycasting();
-	//mlx_loop(data->mlx);
+
 	return (OK);
 }

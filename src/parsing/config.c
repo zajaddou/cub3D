@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 20:45:56 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:06:13 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,27 @@ int	rgb_check(char *rgb)
 	}
 	return (OK);
 }
+#include <math.h>
+
+int color(char *str)
+{
+	char **rgb = ft_split(str, ',');
+	int r;
+	int g;
+	int b;
+	
+	r = ft_atoi(rgb[0]);
+	g = ft_atoi(rgb[1]);
+	b = ft_atoi(rgb[2]);
+	return (r * 256 * 256 + g * 256 + b);
+}
 
 int	extract_config(char *raw)
 {
 	t_parsing *ptr;
-
+	
 	ptr = parsing_g();
+
 	ptr->config[0] = cut_config(raw, "NO", 0);
 	ptr->config[1] = cut_config(raw, "SO", 0);
 	ptr->config[2] = cut_config(raw, "WE", 0);
@@ -123,6 +138,10 @@ int	extract_config(char *raw)
 		return (error("Incorrect config ( RGB )"), ERR);
 	if (rgb_check(ptr->config[4]) || rgb_check(ptr->config[5]))
 		return (ERR);
+		
+	map_g()->f_color = color(ptr->config[4]);
+	map_g()->c_color = color(ptr->config[5]);
+
 	return (OK);
 }
 

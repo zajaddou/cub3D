@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 13:18:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 20:46:04 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 09:59:21 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int	is_cub_file(char *path)
 	if (!(path[len - 4] == '.' && path[len - 3] == 'c' 
 			&& path[len - 2] == 'u' && path[len - 1] == 'b'))
 		return (error("Not a .cub file"), ERR);
-	if (is_valid_file(path) == ERR)
-		return (ERR);
 	return (OK);
 }
 

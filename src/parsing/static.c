@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:26:54 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/24 16:14:05 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:03:11 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,6 @@ int	is_open(int io)
 	if (io != GET)
 		on_off = io;
 	return (on_off);
-}
-
-t_data	*data_g(void)
-{
-	static t_data	data;
-
-	return (&data);
 }
 
 t_map	*map_g(void)

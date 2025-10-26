@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 22:10:59 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:08:49 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,6 @@
 # include <fcntl.h>
 # include <limits.h>
 
-
-
-
-
-
-
-
-
-
-
-
-
 typedef struct parsing
 {
 	char		*config[6];
@@ -41,17 +29,10 @@ typedef struct parsing
 	char		*raw_map;
 }	t_parsing;
 
-
-typedef struct s_data
-{
-	void		*mlx;
-	void		*win;
-	int			win_h;
-	int			win_w;
-}	t_data;
-
 typedef struct s_map
 {
+	int 		c_color;
+	int 		f_color;
 	char		**map;
 	int			h;
 	int			w;
@@ -110,63 +91,11 @@ int			is_empty(char *str);
 int			is_space(int c);
 
 // GLOBAL 
-t_data		*data_g(void);
 t_map		*map_g(void);
 t_parsing	*parsing_g(void);
 t_player 	*player_g(void);
 
+// RAYCASTING
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// hadchi mat9isoch wla ghadi nikk
-
-
-t_mlx *mlx_g(void)
-
-
-
-typedef struct s_rays
-{
-	double ray_angle;
-	double wall_hit_x;
-	double wall_hit_y;
-	double distance;
-	int    hit_vertical;
-	int    facing_up;
-	int    facing_down;
-	int    facing_left;
-	int    facing_right;
-}t_rays;
-
-
-typedef struct s_mlx
-{
-    t_data data;
-    t_map   map;
-    t_player player;
-	t_ray     rays[1080];
-
-}t_mlx;
 
 #endif
