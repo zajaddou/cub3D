@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 21:57:28 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:04:39 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void print_map(void)
 
     map = map_g();
     player = player_g();
+
+
+    printf("\nF:%d\n", map->c_color);
+	printf("\nC:%d\n", map->f_color);
+    
     printf("      -- cub3D map --\n\n");
     i = -1;
     while (map->map[++i] != NULL)
