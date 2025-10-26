@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/25 22:15:15 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:36:25 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,33 +68,27 @@ int	player_info(t_map *map)
 
 int	parse_input(char *path)
 {
-	t_parsing	*ptr;
-	t_map		*map;
-
-	ptr = parsing_g();
-	map = map_g();
-
 	if (is_cub_file(path) == ERR)
 		return (ERR);
 
 	if (read_cub(path))
 		return (ERR);
 
-	if (config_raw(ptr->raw_config))
+	if (config_raw(parsing_g()->raw_config))
 		return (ERR);
 
-	if (map_raw(ptr->raw_map))
+	if (map_raw(parsing_g()->raw_map))
 		return (ERR);
 
-	map_algo(0, 0, map);
+	map_algo(0, 0, map_g());
 
 	if (is_open(GET))
 		return (error("Invalid map ( open )"), ERR);
 
-	if (check_space_inside(map))
+	if (check_space_inside(map_g()))
 		return (ERR);
 
-	if (player_info(map))
+	if (player_info(map_g()))
 		return (ERR);
 
 	print_config();
