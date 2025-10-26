@@ -6,17 +6,17 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 10:36:25 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:23:49 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	check_space_inside(t_map *map)
+int	check_space(t_map *map)
 {
 	int			h;
 	int			w;
-	
+
 	h = -1;
 	while (map->map[++h])
 	{
@@ -31,14 +31,15 @@ int	check_space_inside(t_map *map)
 void view_angle(char pos, float *angle)
 {
 	if (pos == 'N')
-		printf("\nPlayer view [ N ]\n");
-	if (pos == 'E')
-		printf("\nPlayer view [ E ]\n");
-	if (pos == 'S')
-		printf("\nPlayer view [ S ]\n");
-	if (pos == 'W')
-		printf("\nPlayer view [ W ]\n");
-	*angle = 0.6;
+		*angle = 3 * M_PI / 2;
+	else if (pos == 'E')
+		*angle = 0;
+	else if (pos == 'S')
+		*angle = M_PI / 2;
+	else if (pos == 'W')
+		*angle = M_PI;
+	else
+		return;
 }
 
 int	player_info(t_map *map)
@@ -85,8 +86,8 @@ int	parse_input(char *path)
 	if (is_open(GET))
 		return (error("Invalid map ( open )"), ERR);
 
-	if (check_space_inside(map_g()))
-		return (ERR);
+	if (check_space(map_g()))
+		return (error("Space inside map !"), ERR);
 
 	if (player_info(map_g()))
 		return (ERR);
