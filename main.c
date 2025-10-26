@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 10:38:44 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:19:19 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int ac, char **av)
 
 	if (parse_input(av[1]))
 		return (ERR);
+
+	init_window();
 
 	return (OK);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 11:08:49 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:25:10 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <math.h>
 
 typedef struct parsing
 {
 	char		*config[6];
 	char		*raw_config;
 	char		*raw_map;
-}	t_parsing;
+}	t_parsing;make
 
 typedef struct s_map
 {
@@ -96,6 +97,22 @@ t_parsing	*parsing_g(void);
 t_player 	*player_g(void);
 
 // RAYCASTING
+
+
+typedef struct s_window
+{
+	void *mlx;
+	void *win;
+	void *img;
+}t_window;
+
+
+
+typedef struct s_raycasting
+{
+	
+}t_raycasting;
+
 
 
 #endif
