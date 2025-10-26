@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 10:03:00 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:37:51 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,59 @@ int			is_space(int c);
 t_map		*map_g(void);
 t_parsing	*parsing_g(void);
 t_player 	*player_g(void);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// hadchi mat9isoch wla ghadi nikk
+
+
+t_mlx *mlx_g(void)
+
+
+
+typedef struct s_rays
+{
+	double ray_angle;
+	double wall_hit_x;
+	double wall_hit_y;
+	double distance;
+	int    hit_vertical;
+	int    facing_up;
+	int    facing_down;
+	int    facing_left;
+	int    facing_right;
+}t_rays;
+
+
+typedef struct s_mlx
+{
+    t_data data;
+    t_map   map;
+    t_player player;
+	t_ray     rays[1080];
+
+}t_mlx;
 
 #endif
