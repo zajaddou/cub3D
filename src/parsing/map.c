@@ -6,36 +6,11 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 11:04:39 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:31:31 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-void print_map(void)
-{
-    t_map   *map;
-    t_player   *player;
-    int     i;
-
-    map = map_g();
-    player = player_g();
-
-
-    printf("\nF:%d\n", map->c_color);
-	printf("\nC:%d\n", map->f_color);
-    
-    printf("      -- cub3D map --\n\n");
-    i = -1;
-    while (map->map[++i] != NULL)
-        printf("%s\n", map->map[i]);
-    printf("\n");
-    printf("Map : [ hight ] = %d\n", map->h);
-    printf("Map : [ width ] = %d\n", map->w);
-    
-    printf("\nPlayer   | W:%.1f H:%.1f", ((float)player->x / TILE_SIZE), ((float)player->y / TILE_SIZE));
-    printf("\nPosition | X:%d Y:%d\n\n", player->x, player->y);
-}
 
 int scan_map(char *str)
 {
@@ -94,14 +69,14 @@ int get_width(char *str)
     return (max);
 }
 
-char    *add_padding(char *raw, int size, char pad)
+char    *map_padding(char *raw, int size)
 {
     int	i;
     int s;
 
 	i = -1;
     s = -1;
-    buff_str(" ");
+    buff_ch(' ');
 	while (raw[++i])
     {
         if (raw[i] != '\n')
@@ -109,13 +84,13 @@ char    *add_padding(char *raw, int size, char pad)
         else if (raw[i] == '\n')
         {
             if ((i - s) < size + 1)
-                buff_dup(pad, (size + 1 - (i - s)));
+                buff_dup(' ', (size + 1 - (i - s)));
             s = i;
             buff_str("\n ");
         }
     }
-    buff_dup(pad, size);
-    buff_str("\n");
+    buff_dup(' ', size);
+    buff_ch('\n');
     return (buff_ch(GET));
 }
 
@@ -129,8 +104,8 @@ int map_raw(char *raw)
         return (ERR);
     map->h = get_hight(raw);
     map->w = get_width(raw);
-    new_raw = add_padding(raw, map->w+1, ' ');
-    map->w+=2;
+    new_raw = map_padding(raw, ++map->w);
+    map->w+=1;
     map->h+=1;
     map->map = ft_split(new_raw, '\n');
     return (OK);

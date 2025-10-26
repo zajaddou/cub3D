@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 11:23:42 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:50:46 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@
 # include <fcntl.h>
 # include <math.h>
 # include <limits.h>
+
+typedef struct s_texture
+{
+    void    *img_ptr;     // MiniLibX pointer to the loaded image
+    char    *addr;        // Pointer to the raw pixel data array
+    int     bpp;          // Bits per pixel
+    int     size_line;    // Bytes per line
+    int     endian;       // Byte order
+    int     width;        // Texture width (e.g., 64)
+    int     height;       // Texture height (e.g., 64)
+}	t_texture;
 
 typedef struct parsing
 {
@@ -90,6 +101,10 @@ int			is_overflow(char *str, int i);
 int 		is_valid_file(char *path);
 int			is_empty(char *str);
 int			is_space(int c);
+
+// DEBUG
+void		print_map(void);
+void		print_config(void);
 
 // GLOBAL 
 t_map		*map_g(void);

@@ -6,29 +6,15 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:48:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 11:12:47 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:41:14 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void print_config(void)
-{
-	t_parsing *ptr;
-	
-	ptr = parsing_g();
-	printf("\n       -- config --\n\n");
-	printf("NO | %s\n", ptr->config[0]);
-	printf("SO | %s\n", ptr->config[1]);
-	printf("WE | %s\n", ptr->config[2]);
-	printf("EA | %s\n\n", ptr->config[3]);
-	printf("F  | %s\n", ptr->config[4]);
-	printf("C  | %s\n\n", ptr->config[5]);
-}
-
 char *cut_to_end(char *str, int rm_space)
 {
-	str+= 2;
+	str += 2;
 	if (*str == ' ' || *str == '\t')
 		str++;
 	while (*str)
@@ -86,16 +72,14 @@ int	rgb_check(char *rgb)
 	int			nbr;
 	int			i;
 	t_parsing	*ptr;
-	char		**split;
+	char		**sp;
 
 	ptr = parsing_g();
-	split = ft_split(rgb, ',');
-	if (!split)
-		return (error("Split"), ERR);
+	sp = ft_split(rgb, ',');
 	i = -1;
 	while (++i <= 2)
 	{
-		nbr = ft_atoi(split[i]);
+		nbr = ft_atoi(sp[i]);
 		if (!(nbr >= 0 && nbr <= 255))
 			return (error("Incorrect config ( RGB )"), ERR);
 	}
