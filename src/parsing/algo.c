@@ -6,20 +6,19 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/09/12 14:40:18 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/25 21:39:14 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void map_algo(int x, int y)
+void map_algo(int x, int y, t_map *map)
 {
-    t_map *map;
-
-    map = map_g();
+    if (x >= map->h || x < 0 || y >= map->w || y < 0)
+        return ;
     if (is_open(GET))
         return ;
-    if (map->map[x][y] == '1' || map->map[x][y] == '.' || map->map[x][y] == '\a')
+    if (map->map[x][y] == '1' || map->map[x][y] == '.')
         return ;
     if (map->map[x][y] == '0')
     {
@@ -27,8 +26,8 @@ void map_algo(int x, int y)
         return ;
     }
     map->map[x][y] = '.';
-    map_algo(x, y+1);
-    map_algo(x, y-1);
-    map_algo(x+1, y);
-    map_algo(x-1, y);
+    map_algo(x, y+1, map);
+    map_algo(x, y-1, map);
+    map_algo(x+1, y, map);
+    map_algo(x-1, y, map);
 }

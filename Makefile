@@ -6,13 +6,13 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/10/23 12:20:47 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/10/25 19:45:26 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = cub3D
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS  = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRC =  \
 	./global/global.c \

@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/23 10:45:57 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/25 20:49:20 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define OK 0
 # define BUFFER_SIZE 1024
 
+# define TILE_SIZE 32
 # define ADD  1
 # define FREE  -1
 
