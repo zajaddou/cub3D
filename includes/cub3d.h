@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 15:56:38 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/27 18:37:23 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_player
 {
 	int		x;
 	int		y;
-	float	angle;
+	double	angle;
 } t_player;
 
 // GLOBAL
@@ -121,6 +121,8 @@ typedef struct s_ray
 	
 }	t_ray;
 
+
+
 typedef struct s_window
 {
 	void *mlx;
@@ -139,6 +141,11 @@ typedef struct s_window
 	t_ray rays[NUM_RAYS];
 
 	// raycasting 
+
+
+	
+
+	
 	double hit_hor_x;
 	double hor_distace;
 	double hit_ver_y;
@@ -158,15 +165,42 @@ typedef struct s_window
 
 	int is_hor_wall;
 	int is_ver_wall;
-	
+
 }t_window;
 
+// --- COLORS ---
 
+// for raycasting 
 
+double	calc_distance(double x1, double y1, double x2, double y2);
+int has_wall(double x, double y);
+void angle_update(double* ray_angle);
+
+// drawing the walls
+# define COLOR_NORTH 0x00FF0000 // Red
+# define COLOR_SOUTH 0x0000FF00 // Green
+# define COLOR_EAST  0x000000FF // Blue
+# define COLOR_WEST  0x00FFFF00 // Yellow
+void render_walls(t_window *win);
+
+// funciton for window 
 t_window *window_g(void);
 void render_background(t_window *win);
 
 
+// mouvment for the player
 
+# define MOVE_SPEED 15
+# define ROT_SPEED 10
+
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define KEY_ESC 53
+
+int key_press_handle(int key, t_window *win);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/10/26 13:32:37 by mgarouj          ###   ########.fr        #
+#    Updated: 2025/10/27 18:05:33 by mgarouj          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ SRC =  \
 	./raycasting/window_init.c\
 	./raycasting/raycasting_part.c\
 	./raycasting/render_background.c\
+	./raycasting/render_walls.c\
+	./raycasting/mouvment_key.c\
 	
 	
 
