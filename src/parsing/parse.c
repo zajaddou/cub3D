@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:22:24 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/27 18:38:20 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/27 19:45:39 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_space(t_map *map)
 	return (OK);
 }
 
-void view_angle(char pos, float *angle)
+void view_angle(char pos, double *angle)
 {
 	if (pos == 'N')
 		*angle = 3 * M_PI / 2;

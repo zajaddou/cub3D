@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:18:53 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/10/27 18:09:49 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/27 20:38:12 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double	calc_distance(double x1, double y1, double x2, double y2)
 void angle_update(double* ray_angle)
 {
     *ray_angle = fmod(*ray_angle, 2 * M_PI);
-    if (ray_angle < 0)
+    if (*ray_angle < 0)
         *ray_angle += 2 * M_PI;
 }
 
@@ -149,8 +149,8 @@ void cast_ver(t_window *win, double ray_angle, int id)
 void cast_single_ray(t_window* win, double ray_angle, int id)
 {
     
-    (void )win;
     angle_update(&ray_angle);
+    win->rays[id].ray_angle = ray_angle;
     win->is_hor_wall = 0;
     win->is_ver_wall = 0;
     win->rays[id].facing_down = ray_angle > 0 && ray_angle < M_PI;
@@ -182,12 +182,12 @@ void cast_all_rays(t_window *win)
     int i;
 
     i = 0;
+    ray_angle = win->player.angle - (FOV / 2);
     window_g()->iswall = 0;
     window_g()->is_hor_wall = 0;
     window_g()->is_ver_wall = 0;
     while (i < NUM_RAYS)
     {
-        angle_update(&ray_angle);
         cast_single_ray(win, ray_angle, i);
         ray_angle += INCREMENT;
         i++;
@@ -198,6 +198,9 @@ int render_frame(void *param)
 {
     t_window *win = (t_window *)param;
 
+    update_player(win);
+
+    
     render_background(win);
     cast_all_rays(win);
     render_walls(win);   

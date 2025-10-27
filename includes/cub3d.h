@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/27 18:37:23 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/27 20:39:37 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int		x;
-	int		y;
-	double	angle;
+    double  x; // Changed from int
+    double  y; // Changed from int
+    double  angle;
 } t_player;
-
 // GLOBAL
 
 void	*ft_malloc(size_t size);
@@ -121,7 +120,15 @@ typedef struct s_ray
 	
 }	t_ray;
 
-
+typedef struct s_keys
+    {
+        int w;
+        int a;
+        int s;
+        int d;
+        int left;
+        int right;
+    } t_keys;
 
 typedef struct s_window
 {
@@ -166,6 +173,8 @@ typedef struct s_window
 	int is_hor_wall;
 	int is_ver_wall;
 
+	t_keys keys;
+
 }t_window;
 
 // --- COLORS ---
@@ -182,7 +191,10 @@ void angle_update(double* ray_angle);
 # define COLOR_EAST  0x000000FF // Blue
 # define COLOR_WEST  0x00FFFF00 // Yellow
 void render_walls(t_window *win);
-
+int	key_release_handle(int key, t_window *win);
+void	move_player(t_window *win, double move_speed, double angle_offset);
+void	rotate_player(t_window *win, double rot_speed);
+void	update_player(t_window *win);
 // funciton for window 
 t_window *window_g(void);
 void render_background(t_window *win);
@@ -190,8 +202,8 @@ void render_background(t_window *win);
 
 // mouvment for the player
 
-# define MOVE_SPEED 15
-# define ROT_SPEED 10
+# define MOVE_SPEED 0.5
+# define ROT_SPEED 0.05
 
 # define KEY_W 13
 # define KEY_A 0

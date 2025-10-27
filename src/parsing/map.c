@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/26 11:04:39 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/27 19:45:51 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void print_map(void)
     printf("Map : [ width ] = %d\n", map->w);
     
     printf("\nPlayer   | W:%.1f H:%.1f", ((float)player->x / TILE_SIZE), ((float)player->y / TILE_SIZE));
-    printf("\nPosition | X:%d Y:%d\n\n", player->x, player->y);
+    // printf("\nPosition | X:%d Y:%d\n\n", player->x, player->y);
 }
 
 int scan_map(char *str)

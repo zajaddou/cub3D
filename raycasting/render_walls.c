@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:28:43 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/10/27 17:39:20 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/27 20:00:19 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ static int	get_wall_color(t_ray *ray)
 	}
 }
 
-/**
- * @brief Draws a single vertical line of pixels for a wall slice.
- */
 static void	draw_vertical_line(t_window *win, int x, int draw_start, int draw_end, int color)
 {
 	int	y;
@@ -65,9 +62,9 @@ void render_walls(t_window *win)
 {
     int i;
     double perp_dist;
-    double wall_hieght;
+    double wall_height;
     int draw_start;
-    int drwaw_end;
+    int draw_end;
     int color;
 
 
@@ -76,17 +73,20 @@ void render_walls(t_window *win)
     {
         perp_dist = win->rays[i].distance * cos(win->rays[i].ray_angle - win->player.angle);
 
-        wall_hieght = (TILE / perp_dist) * ((WIN_W / 2) / tan(FOV / 2));
+		if (perp_dist == 0)
+            perp_dist = 1e-30;
 
-        draw_start = (WIN_H / 2) - (wall_hieght / 2);
+        wall_height = (TILE / perp_dist) * ((WIN_W / 2) / tan(FOV / 2));
+
+        draw_start = (WIN_H / 2) - (wall_height / 2);
         if (draw_start < 0)
             draw_start = 0;
-        drwaw_end = (WIN_H / 2) + (wall_hieght / 2);
-        if (drwaw_end >= WIN_H)
-            drwaw_end = WIN_H - 1;
+        draw_end = (WIN_H / 2) + (wall_height / 2);
+        if (draw_end >= WIN_H)
+            draw_end = WIN_H - 1;
         
         color = get_wall_color(&win->rays[i]);
-        draw_vertical_line(win, i, draw_start, drwaw_end, color);
+        draw_vertical_line(win, i, draw_start, draw_end, color);
         i++;
         
     }
