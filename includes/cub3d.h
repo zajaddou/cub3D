@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/27 20:39:37 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/28 19:56:45 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,12 +198,13 @@ void	update_player(t_window *win);
 // funciton for window 
 t_window *window_g(void);
 void render_background(t_window *win);
+void put_pixel(t_window *win, int x, int y, int color);
 
 
 // mouvment for the player
 
-# define MOVE_SPEED 0.5
-# define ROT_SPEED 0.05
+# define MOVE_SPEED 5
+# define ROT_SPEED 0.1
 
 # define KEY_W 13
 # define KEY_A 0

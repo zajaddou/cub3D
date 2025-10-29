@@ -6,25 +6,11 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:28:43 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/10/27 20:00:19 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/29 14:36:41 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-
-
- 
-static void	my_pixel_put(t_window *win, int x, int y, int color)
-{
-	char	*dst;
-
-	// Only draw if the pixel is within the window
-	if (x < 0 || x >= WIN_W || y < 0 || y >= WIN_H)
-		return ;
-	dst = win->addr + (y * win->line_len + x * (win->bpp / 8));
-	*(unsigned int *)dst = color;
-}
 
 static int	get_wall_color(t_ray *ray)
 {
@@ -51,7 +37,7 @@ static void	draw_vertical_line(t_window *win, int x, int draw_start, int draw_en
 	y = draw_start;
 	while (y < draw_end)
 	{
-		my_pixel_put(win, x, y, color);
+		put_pixel(win, x, y, color);
 		y++;
 	}
 }
@@ -76,7 +62,7 @@ void render_walls(t_window *win)
 		if (perp_dist == 0)
             perp_dist = 1e-30;
 
-        wall_height = (TILE / perp_dist) * ((WIN_W / 2) / tan(FOV / 2));
+        wall_height = (TILE / perp_dist) * (((WIN_W )  / (2*tan(FOV / 2))));
 
         draw_start = (WIN_H / 2) - (wall_height / 2);
         if (draw_start < 0)

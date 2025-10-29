@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/27 15:33:31 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/29 14:39:51 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 #define PI 3.14159265359
 #define FOV (60 * (PI / 180))
 #define TILE 32
-#define NUM_RAYS WIN_W
+#define NUM_RAYS WIN_W 
 #define INCREMENT FOV / NUM_RAYS
 
 
