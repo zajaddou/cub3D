@@ -14,19 +14,15 @@
 
 void draw_square(t_window *win, int x, int y, int size, int color)
 {
-    int i;
-    int j;
+    int l;
+    int b;
 
-    i = 0;
-    while (i < size)
+    l = -1;
+    while (++l < size)
     {
-        j = 0;
-        while (j < size)
-        {
-            put_pixel(win, x + j, y + i, color); 
-            j++;
-        }
-        i++;
+        l = -1;
+        while (++b < size)
+            put_pixel(win, x + b, y + l, color); 
     }
 }
 
