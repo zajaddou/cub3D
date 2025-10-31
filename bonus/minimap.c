@@ -14,39 +14,39 @@
 
 void draw_square(t_window *win, int x, int y, int color)
 {
-    int l;
-    int b;
+    int h;
+    int w;
 
-    l = -1;
-    while (++l < 10)
+    h = -1;
+    while (++h < 10)
     {
-        b = -1;
-        while (++b < 10)
-            put_pixel(win, x + b, y + l, color); 
+        w = -1;
+        while (++w < 10)
+            put_pixel(win, x + w, y + h, color); 
     }
 }
 
-
 int color_detect(int x, int y, t_map *map)
 {
-    int color;
+    if (y < 0 || y >= map->h)
+        return (COLOR_WALL);
 
-    if (y >= 0 && y < map->h && map->map[y] && x >= 0 && x < map->w)
-    {
-        if (map->map[y][x] == '1')
-            color = COLOR_WALL;
-        if (map->map[y][x] == '.') 
-            color = COLOR_WALL; 
-    }
-    else
-        color = COLOR_WALL;
-    return (color);
+    if (x < 0 || x >= map->w)
+        return (COLOR_WALL);
+
+    if (map->map[y][x] == '0')
+        return (COLOR_FLOOR);
+
+    return (COLOR_WALL);
 }
 
 void draw_minimap(void *param)
 {
     t_window    *win;
     t_map       *map;
+    int         color;
+    int         h;
+    int         w;
 
     map =  map_g();
     win = (t_window *)param;
@@ -54,21 +54,14 @@ void draw_minimap(void *param)
     int xs = (int)(win->player.x / TILE) - 5;
     int ys = (int)(win->player.y / TILE) - 5;
 
-    for (int j = 0; j < 11; j++)
+    h = -1;
+    while (++h <= 10)
     {
-        for (int i = 0; i < 11; i++)
+        w = -1;
+        while (++w <= 10)
         {
-            
-            int map_x = xs + i;
-            int map_y = ys + j;
-            
-            int color = COLOR_FLOOR;
-
-            int px_x = (i * 10);
-            int px_y = (j * 10);
-
-
-            draw_square(win, px_x, px_y, color);
+            color = color_detect(xs + h, ys + w, map);
+            draw_square(win, h * 10, w * 10, color);
         }
     }
     draw_square(win, 50, 50, COLOR_PLAYER);
