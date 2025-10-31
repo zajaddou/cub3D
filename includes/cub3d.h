@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/28 19:56:45 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/31 08:39:36 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ void angle_update(double* ray_angle);
 # define COLOR_SOUTH 0x0000FF00 // Green
 # define COLOR_EAST  0x000000FF // Blue
 # define COLOR_WEST  0x00FFFF00 // Yellow
-void render_walls(t_window *win);
+void render_walls(t_window *win, int i, int color);
 int	key_release_handle(int key, t_window *win);
 void	move_player(t_window *win, double move_speed, double angle_offset);
 void	rotate_player(t_window *win, double rot_speed);
@@ -215,5 +215,7 @@ void put_pixel(t_window *win, int x, int y, int color);
 # define KEY_ESC 53
 
 int key_press_handle(int key, t_window *win);
+void is_hor_ray(t_window *win, double ray_angle, int id);
+void is_ver_ray(t_window *win, double ray_angle, int id);
 
 #endif

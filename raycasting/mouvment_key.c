@@ -1,6 +1,17 @@
-#include "../includes/cub3d.h" // Or your header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mouvment_key.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/31 08:31:36 by mgarouj           #+#    #+#             */
+/*   Updated: 2025/10/31 08:33:03 by mgarouj          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// This function is called when a key is PRESSED
+#include "../includes/cub3d.h"
+
 int	key_press_handle(int key, t_window *win)
 {
 	if (key == KEY_ESC)
@@ -20,7 +31,6 @@ int	key_press_handle(int key, t_window *win)
 	return (0);
 }
 
-// This function is called when a key is RELEASED
 int	key_release_handle(int key, t_window *win)
 {
 	printf("key = %d \n", key);
@@ -39,16 +49,13 @@ int	key_release_handle(int key, t_window *win)
 	return (0);
 }
 
-// --- (Your move_player and rotate_player logic) ---
-// (Make sure you have these functions)
-
- void	rotate_player(t_window *win, double rot_speed)
+void	rotate_player(t_window *win, double rot_speed)
 {
 	win->player.angle += rot_speed;
 	angle_update(&win->player.angle);
 }
 
- void	move_player(t_window *win, double move_speed, double angle_offset)
+void	move_player(t_window *win, double move_speed, double angle_offset)
 {
 	double	move_angle;
 	double	new_x;
@@ -58,17 +65,14 @@ int	key_release_handle(int key, t_window *win)
 
 	move_angle = win->player.angle + angle_offset;
 	angle_update(&move_angle);
-
 	move_x = cos(move_angle) * move_speed;
 	move_y = sin(move_angle) * move_speed;
-	
 	new_x = win->player.x + move_x;
 	printf("new x fo player = %f \n", new_x);
 	if (!has_wall(new_x, win->player.y))
 		win->player.x = new_x;
-	
 	new_y = win->player.y + move_y;
-	printf("new x fo player = %f \n", new_y);
+	printf("new y fo player = %f \n", new_y);
 	if (!has_wall(win->player.x, new_y))
 		win->player.y = new_y;
 }

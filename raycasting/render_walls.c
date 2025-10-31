@@ -6,13 +6,13 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:28:43 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/10/29 14:36:41 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/31 08:41:47 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int	get_wall_color(t_ray *ray)
+int	get_wall_color(t_ray *ray)
 {
 	if (ray->hit_vertical)
 	{
@@ -30,10 +30,12 @@ static int	get_wall_color(t_ray *ray)
 	}
 }
 
-static void	draw_vertical_line(t_window *win, int x, int draw_start, int draw_end, int color)
+void	draw_vertical_line(int x, int draw_start, int draw_end, int color)
 {
-	int	y;
+	int			y;
+	t_window	*win;
 
+	win = window_g();
 	y = draw_start;
 	while (y < draw_end)
 	{
@@ -42,38 +44,28 @@ static void	draw_vertical_line(t_window *win, int x, int draw_start, int draw_en
 	}
 }
 
-
-
-void render_walls(t_window *win)
+void	render_walls(t_window *win, int i, int color)
 {
-    int i;
-    double perp_dist;
-    double wall_height;
-    int draw_start;
-    int draw_end;
-    int color;
+	double	perp_dist;
+	double	wall_height;
+	int		draw_start;
+	int		draw_end;
 
-
-    i = 0;
-    while (i < NUM_RAYS)
-    {
-        perp_dist = win->rays[i].distance * cos(win->rays[i].ray_angle - win->player.angle);
-
+	while (i < NUM_RAYS)
+	{
+		perp_dist = win->rays[i].distance
+			* cos(win->rays[i].ray_angle - win->player.angle);
 		if (perp_dist == 0)
-            perp_dist = 1e-30;
-
-        wall_height = (TILE / perp_dist) * (((WIN_W )  / (2*tan(FOV / 2))));
-
-        draw_start = (WIN_H / 2) - (wall_height / 2);
-        if (draw_start < 0)
-            draw_start = 0;
-        draw_end = (WIN_H / 2) + (wall_height / 2);
-        if (draw_end >= WIN_H)
-            draw_end = WIN_H - 1;
-        
-        color = get_wall_color(&win->rays[i]);
-        draw_vertical_line(win, i, draw_start, draw_end, color);
-        i++;
-        
-    }
+			perp_dist = 1e-30;
+		wall_height = (TILE / perp_dist) * (((WIN_W) / (2 * tan(FOV / 2))));
+		draw_start = WIN_H / 2 - wall_height / 2;
+		if (draw_start < 0)
+			draw_start = 0;
+		draw_end = (WIN_H / 2) + (wall_height / 2);
+		if (draw_end >= WIN_H)
+			draw_end = WIN_H - 1;
+		color = get_wall_color(&win->rays[i]);
+		draw_vertical_line(i, draw_start, draw_end, color);
+		i++;
+	}
 }
