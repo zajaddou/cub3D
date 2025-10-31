@@ -26,37 +26,48 @@ void draw_square(t_window *win, int x, int y, int color)
     }
 }
 
+
+int color_detect(int x, int y, t_map *map)
+{
+    int color;
+
+    if (y >= 0 && y < map->h && map->map[y] && x >= 0 && x < map->w)
+    {
+        if (map->map[y][x] == '1')
+            color = COLOR_WALL;
+        if (map->map[y][x] == '.') 
+            color = COLOR_WALL; 
+    }
+    else
+        color = COLOR_WALL;
+    return (color);
+}
+
 void draw_minimap(void *param)
 {
-    t_window *win = (t_window *)param;
-    t_map   *map = map_g();
+    t_window    *win;
+    t_map       *map;
 
-    int map_x_start = (int)(win->player.x / TILE) - 5;
-    int map_y_start = (int)(win->player.y / TILE) - 5;
+    map =  map_g();
+    win = (t_window *)param;
+
+    int xs = (int)(win->player.x / TILE) - 5;
+    int ys = (int)(win->player.y / TILE) - 5;
 
     for (int j = 0; j < 11; j++)
     {
         for (int i = 0; i < 11; i++)
         {
             
-            int real_map_x = map_x_start + i;
-            int real_map_y = map_y_start + j;
+            int map_x = xs + i;
+            int map_y = ys + j;
             
             int color = COLOR_FLOOR;
 
             int px_x = (i * 10);
             int px_y = (j * 10);
 
-            if (real_map_y >= 0 && real_map_y < map->h && map->map[real_map_y] && 
-                real_map_x >= 0 && real_map_x < (int)ft_strlen(map->map[real_map_y]))
-            {
-                if (map->map[real_map_y][real_map_x] == '1')
-                    color = COLOR_WALL;
-                if (map->map[real_map_y][real_map_x] == '.') 
-                    color = COLOR_WALL; 
-            }
-            else
-                color = COLOR_WALL;
+
             draw_square(win, px_x, px_y, color);
         }
     }
