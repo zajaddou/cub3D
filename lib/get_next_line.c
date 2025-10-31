@@ -53,7 +53,7 @@ static char	*read_line(int fd, char *str)
 		return (free(str), str = NULL, NULL);
 	while (!utils_ft_strchr(str, '\n'))
 	{
-		bread = read(fd, buff, BUFFER_SIZE);
+		bread = read(fd, buff, 1024);
 		if (bread < 0)
 			return (free(buff), buff = NULL, free(str), str = NULL, NULL);
 		if (bread == 0)
@@ -105,7 +105,7 @@ char	*get_next_line(int fd)
 	static char	*str;
 	char		*res;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)
+	if (fd < 0 || 1024 <= 0 || 1024 > INT_MAX)
 		return (NULL);
 	str = read_line(fd, str);
 	if (!str)

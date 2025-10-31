@@ -12,16 +12,16 @@
 
 #include "../includes/cub3d.h" 
 
-void draw_square(t_window *win, int x, int y, int size, int color)
+void draw_square(t_window *win, int x, int y, int color)
 {
     int l;
     int b;
 
     l = -1;
-    while (++l < size)
+    while (++l < 10)
     {
-        l = -1;
-        while (++b < size)
+        b = -1;
+        while (++b < 10)
             put_pixel(win, x + b, y + l, color); 
     }
 }
@@ -30,8 +30,7 @@ void draw_minimap(void *param)
 {
     t_window *win = (t_window *)param;
     t_map   *map = map_g();
-    
-    int PAD = 10;
+
     int map_x_start = (int)(win->player.x / TILE) - 5;
     int map_y_start = (int)(win->player.y / TILE) - 5;
 
@@ -45,8 +44,8 @@ void draw_minimap(void *param)
             
             int color = COLOR_FLOOR;
 
-            int px_x = (i * MINIMAP_TILE) + PAD;
-            int px_y = (j * MINIMAP_TILE) + PAD;
+            int px_x = (i * 10);
+            int px_y = (j * 10);
 
             if (real_map_y >= 0 && real_map_y < map->h && map->map[real_map_y] && 
                 real_map_x >= 0 && real_map_x < (int)ft_strlen(map->map[real_map_y]))
@@ -58,17 +57,8 @@ void draw_minimap(void *param)
             }
             else
                 color = COLOR_WALL;
-            
-            draw_square(win, px_x, px_y, MINIMAP_TILE, color);
+            draw_square(win, px_x, px_y, color);
         }
     }
-
-    int player_start_x = (5 * MINIMAP_TILE) + PAD;
-    int player_start_y = (5 * MINIMAP_TILE) + PAD;
-
-    draw_square(win, 
-        player_start_x, 
-        player_start_y, 
-        MINIMAP_TILE,
-        COLOR_PLAYER); 
+    draw_square(win, 50, 50, COLOR_PLAYER);
 }
