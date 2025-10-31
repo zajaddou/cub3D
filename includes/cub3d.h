@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/31 09:58:11 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/31 15:55:35 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <math.h>
 # include <limits.h>
 # include <math.h>
+# include <ApplicationServices/ApplicationServices.h>
+
 
 
 typedef struct parsing

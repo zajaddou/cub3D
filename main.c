@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/31 15:51:26 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/10/31 16:05:39 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,24 @@ void init_data()
 
 int mouse_move_handle(int x, int y, t_window *win)
 {
-    int center_x = WIN_W / 2;
-    int dx = x - center_x;
+    static int last_x = -1;
+    double sensitivity = 0.003;
+    int dx;
 
-    double sensitivity = 0.002;
+    (void)y;
+
+    if (last_x == -1)
+        last_x = x;
+
+    dx = x - last_x;
+    last_x = x;
+
     win->player.angle += dx * sensitivity;
     angle_update(&win->player.angle);
 
-    // Recenter mouse to middle after handling movement
-    mlx_mouse_move(win->mlx, win->win, center_x, WIN_H / 2);
-
     return (0);
 }
+
 
 
 int	main(int ac, char **av)
@@ -57,12 +63,13 @@ int	main(int ac, char **av)
 	init_data();
 	init_animation();
 
+	CGDisplayHideCursor(kCGDirectMainDisplay);
+
 	mlx_loop_hook(window_g()->mlx, render_frame, window_g());
-	// mlx_key_hook(window_g()->win, key_press_handle, window_g());
 	mlx_hook(window_g()->win, 3, (1L<<1), key_release_handle, window_g());
 	mlx_hook(window_g()->win, 2, (1L<<1), key_press_handle, window_g());
-	mlx_hook(window_g()->win, 2, (1L<<1), key_press_handle, window_g());
-	
+	mlx_hook(window_g()->win, 6, 1L<<6, mouse_move_handle, window_g());
+
 	mlx_loop(window_g()->mlx);
 
 	return (OK);
