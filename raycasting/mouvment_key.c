@@ -23,6 +23,7 @@ int	key_press_handle(int key, t_window *win)
 // This function is called when a key is RELEASED
 int	key_release_handle(int key, t_window *win)
 {
+	printf("key = %d \n", key);
 	if (key == KEY_W)
 		win->keys.w = 0;
 	if (key == KEY_S)
@@ -57,31 +58,31 @@ int	key_release_handle(int key, t_window *win)
 
 	move_angle = win->player.angle + angle_offset;
 	angle_update(&move_angle);
-    // Note: Your MOVE_SPEED is 15, which is high.
-    // Make sure your player coordinates are in PIXELS, not grid units.
+
 	move_x = cos(move_angle) * move_speed;
 	move_y = sin(move_angle) * move_speed;
 	
 	new_x = win->player.x + move_x;
+	printf("new x fo player = %f \n", new_x);
 	if (!has_wall(new_x, win->player.y))
 		win->player.x = new_x;
 	
 	new_y = win->player.y + move_y;
+	printf("new x fo player = %f \n", new_y);
 	if (!has_wall(win->player.x, new_y))
 		win->player.y = new_y;
 }
 
-// --- This new function runs every frame ---
 void	update_player(t_window *win)
 {
 	if (win->keys.w)
-		move_player(win, MOVE_SPEED, 0); // Forward
+		move_player(win, MOVE_SPEED, 0);
 	if (win->keys.s)
-		move_player(win, -MOVE_SPEED, 0); // Backward
+		move_player(win, -MOVE_SPEED, 0);
 	if (win->keys.a)
-		move_player(win, MOVE_SPEED, -M_PI / 2); // Strafe Left
+		move_player(win, MOVE_SPEED, -M_PI / 2);
 	if (win->keys.d)
-		move_player(win, MOVE_SPEED, M_PI / 2); // Strafe Right
+		move_player(win, MOVE_SPEED, M_PI / 2);
 	if (win->keys.left)
 		rotate_player(win, -ROT_SPEED);
 	if (win->keys.right)

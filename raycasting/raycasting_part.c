@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_part.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:18:53 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/10/27 20:38:12 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/30 20:14:38 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ void cast_ver(t_window *win, double ray_angle, int id)
     win->is_ver_wall = 1;
 }
 
-void cast_single_ray(t_window* win, double ray_angle, int id)
+void cast_ray(t_window* win, double ray_angle, int id)
 {
     
     angle_update(&ray_angle);
@@ -183,12 +183,9 @@ void cast_all_rays(t_window *win)
 
     i = 0;
     ray_angle = win->player.angle - (FOV / 2);
-    window_g()->iswall = 0;
-    window_g()->is_hor_wall = 0;
-    window_g()->is_ver_wall = 0;
     while (i < NUM_RAYS)
     {
-        cast_single_ray(win, ray_angle, i);
+        cast_ray(win, ray_angle, i);
         ray_angle += INCREMENT;
         i++;
     }
@@ -197,14 +194,20 @@ void cast_all_rays(t_window *win)
 int render_frame(void *param)
 {
     t_window *win = (t_window *)param;
-
+    
     update_player(win);
 
-    
     render_background(win);
     cast_all_rays(win);
-    render_walls(win);   
+
+    render_walls(win); 
+
+    draw_minimap(win);
+
+    update_animation(win);
+
     mlx_put_image_to_window(win->mlx, win->win, win->img, 0, 0);
+
 
     return (0);
 }

@@ -99,7 +99,7 @@ void	cast_ver(t_mlx *mlx, double ray_angle, int i, t_Raycasting *r)
 	}
 }
 
-void	cast_single_ray(t_mlx *mlx, double ray_angle, int i)
+void	cast_ray(t_mlx *mlx, double ray_angle, int i)
 {
 	t_Raycasting	r;
 

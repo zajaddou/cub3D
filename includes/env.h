@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/27 15:33:31 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/30 15:52:58 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,17 @@
 #define PI 3.14159265359
 #define FOV (60 * (PI / 180))
 #define TILE 32
-#define NUM_RAYS WIN_W
+#define NUM_RAYS WIN_W 
 #define INCREMENT FOV / NUM_RAYS
 
+
+// Mini Map
+
+#define MINIMAP_SIZE  200
+#define MINIMAP_TILE  10
+
+#define COLOR_PLAYER  0xFF0000
+#define COLOR_WALL    0x333333
+#define COLOR_FLOOR   0xDDDDDD
 
 # endif

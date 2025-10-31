@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/27 20:39:37 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/10/31 09:58:11 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ int 		is_valid_file(char *path);
 int			is_empty(char *str);
 int			is_space(int c);
 
+void 		draw_minimap(void *param);
+
 // GLOBAL 
 t_map		*map_g(void);
 t_parsing	*parsing_g(void);
@@ -102,7 +104,14 @@ t_player 	*player_g(void);
 void init_window();
 int render_frame(void *param);
 
-
+typedef struct s_animation
+{
+    void    *img_ptr[3];
+    int     frame;
+    long    last_frame_time;
+    int     width;
+    int     height;
+}   t_animation;
 
 typedef struct s_ray
 {
@@ -146,13 +155,11 @@ typedef struct s_window
 	
 	t_player player;
 	t_ray rays[NUM_RAYS];
+	t_animation animated_logo;
 
 	// raycasting 
 
 
-	
-
-	
 	double hit_hor_x;
 	double hor_distace;
 	double hit_ver_y;
@@ -175,7 +182,10 @@ typedef struct s_window
 
 	t_keys keys;
 
-}t_window;
+} t_window;
+
+void    	init_animation(void);
+void    	update_animation(t_window *win);
 
 // --- COLORS ---
 
@@ -198,11 +208,12 @@ void	update_player(t_window *win);
 // funciton for window 
 t_window *window_g(void);
 void render_background(t_window *win);
+void put_pixel(t_window *win, int x, int y, int color);
 
 
 // mouvment for the player
 
-# define MOVE_SPEED 0.5
+# define MOVE_SPEED 5
 # define ROT_SPEED 0.05
 
 # define KEY_W 13

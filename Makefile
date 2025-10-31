@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/10/28 11:05:41 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/10/30 19:49:58 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,8 @@ SRC =  \
 	./parsing/static.c \
 	./parsing/parse.c \
 	./parsing/map.c \
+	./parsing/animation.c \
+	./parsing/minimap.c \
 	./raycasting/window_init.c\
 	./raycasting/raycasting_part.c\
 	./raycasting/render_background.c\
