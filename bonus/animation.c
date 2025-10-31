@@ -12,8 +12,6 @@
 
 #include "../includes/cub3d.h"
 
-#include <sys/time.h>
-
 long    get_current_time_in_ms(void)
 {
     struct timeval  time;

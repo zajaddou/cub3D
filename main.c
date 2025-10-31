@@ -27,28 +27,6 @@ void init_data()
 	
 }
 
-int mouse_move_handle(int x, int y, t_window *win)
-{
-    static int last_x = -1;
-    double sensitivity = 0.003;
-    int dx;
-
-    (void)y;
-
-    if (last_x == -1)
-        last_x = x;
-
-    dx = x - last_x;
-    last_x = x;
-
-    win->player.angle += dx * sensitivity;
-    angle_update(&win->player.angle);
-
-    return (0);
-}
-
-
-
 int	main(int ac, char **av)
 {
 	logo();
@@ -63,13 +41,10 @@ int	main(int ac, char **av)
 	init_data();
 	init_animation();
 
-	CGDisplayHideCursor(kCGDirectMainDisplay);
-
 	mlx_loop_hook(window_g()->mlx, render_frame, window_g());
-	mlx_hook(window_g()->win, 3, (1L<<1), key_release_handle, window_g());
-	mlx_hook(window_g()->win, 2, (1L<<1), key_press_handle, window_g());
-	mlx_hook(window_g()->win, 6, 1L<<6, mouse_move_handle, window_g());
-
+	mlx_hook(window_g()->win, 3, 0, key_release_handle, window_g());
+	mlx_hook(window_g()->win, 2, 0, key_press_handle, window_g());
+	mlx_hook(window_g()->win, 6, 0, mouse_handle, window_g());
 	mlx_loop(window_g()->mlx);
 
 	return (OK);

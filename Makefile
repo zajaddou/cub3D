@@ -37,8 +37,9 @@ SRC =  \
 	./parsing/static.c \
 	./parsing/parse.c \
 	./parsing/map.c \
-	./parsing/animation.c \
-	./parsing/minimap.c \
+	./bonus/animation.c \
+	./bonus/minimap.c \
+	./bonus/mouse.c \
 	./raycasting/window_init.c\
 	./raycasting/raycasting_part.c\
 	./raycasting/render_background.c\

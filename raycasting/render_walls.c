@@ -42,8 +42,6 @@ static void	draw_vertical_line(t_window *win, int x, int draw_start, int draw_en
 	}
 }
 
-
-
 void render_walls(t_window *win)
 {
     int i;

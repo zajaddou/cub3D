@@ -23,9 +23,7 @@
 # include <math.h>
 # include <limits.h>
 # include <math.h>
-# include <ApplicationServices/ApplicationServices.h>
-
-
+# include <sys/time.h>
 
 typedef struct parsing
 {
@@ -49,62 +47,7 @@ typedef struct s_player
     double  y; // Changed from int
     double  angle;
 } t_player;
-// GLOBAL
 
-void	*ft_malloc(size_t size);
-void	ft_free(void *ptr, int flag);
-void	error(char *str);
-void	logo(void);
-
-
-// LIB
-
-char	*buff_dup(int c, int dup);
-int		ft_atoi(const char *str);
-char	**ft_split(char const *s, char c);
-int		ft_isdigit(int c);
-int		or(int main, int b, int c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*get_next_line(int fd);
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
-char	*buff_ch(int c);
-char	*buff_str(char *str);
-
-// FUNCTIONS
-
-void 		print_config(void);
-void 		print_map(void);
-void 		map_algo(int x, int y, t_map *map);
-int			is_open(int io);
-int	    	is_cub_file(char *path);
-int			is_xpm_file(char *path);
-int			parse_input(char *path);
-int			word_search(char *str, char *need);
-int			read_cub(char *path);
-int 		config_raw(char *raw);
-int 		map_raw(char *raw);
-char 		*rm_spaces(char *str);
-int			is_overflow(char *str, int i);
-int 		is_valid_file(char *path);
-int			is_empty(char *str);
-int			is_space(int c);
-
-void 		draw_minimap(void *param);
-
-// GLOBAL 
-t_map		*map_g(void);
-t_parsing	*parsing_g(void);
-t_player 	*player_g(void);
-
-// RAYCASTING
-
-void init_window();
-int render_frame(void *param);
 
 typedef struct s_animation
 {
@@ -188,6 +131,64 @@ typedef struct s_window
 
 void    	init_animation(void);
 void    	update_animation(t_window *win);
+
+// GLOBAL
+
+void	*ft_malloc(size_t size);
+void	ft_free(void *ptr, int flag);
+void	error(char *str);
+void	logo(void);
+
+
+// LIB
+
+char	*buff_dup(int c, int dup);
+int		ft_atoi(const char *str);
+char	**ft_split(char const *s, char c);
+int		ft_isdigit(int c);
+int		or(int main, int b, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strncpy(char *dest, const char *src, size_t n);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
+void	ft_putstr_fd(char *s, int fd);
+size_t	ft_strlen(const char *s);
+char	*buff_ch(int c);
+char	*buff_str(char *str);
+
+// FUNCTIONS
+
+void 		print_config(void);
+void 		print_map(void);
+void 		map_algo(int x, int y, t_map *map);
+int			is_open(int io);
+int	    	is_cub_file(char *path);
+int			is_xpm_file(char *path);
+int			parse_input(char *path);
+int			word_search(char *str, char *need);
+int			read_cub(char *path);
+int 		config_raw(char *raw);
+int 		map_raw(char *raw);
+char 		*rm_spaces(char *str);
+int			is_overflow(char *str, int i);
+int 		is_valid_file(char *path);
+int			is_empty(char *str);
+int			is_space(int c);
+int 		mouse_handle(int x, int y, t_window *win);
+void 		draw_minimap(void *param);
+
+// GLOBAL 
+t_map		*map_g(void);
+t_parsing	*parsing_g(void);
+t_player 	*player_g(void);
+
+// RAYCASTING
+
+void init_window();
+int render_frame(void *param);
+
 
 // --- COLORS ---
 
