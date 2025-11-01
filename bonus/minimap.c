@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   minimap.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 16:13:13 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/31 16:13:15 by zajaddou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../includes/cub3d.h" 
 
@@ -34,10 +23,15 @@ int color_detect(int x, int y, t_map *map)
     if (x < 0 || x >= map->w)
         return (COLOR_WALL);
 
-    if (map->map[y][x] == '0')
-        return (COLOR_FLOOR);
+    if (map->map[y][x] == '1' || map->map[y][x] == '.')
+        return (COLOR_WALL);
 
-    return (COLOR_WALL);
+    if (map->map[y][x] == 'D')
+        return (COLOR_DOOR_C);
+    if (map->map[y][x] == 'd')
+        return (COLOR_DOOR_O);
+
+    return (COLOR_FLOOR);
 }
 
 void draw_minimap(void *param)
@@ -51,8 +45,8 @@ void draw_minimap(void *param)
     map =  map_g();
     win = (t_window *)param;
 
-    int xs = (int)(win->player.x / TILE) - 5;
-    int ys = (int)(win->player.y / TILE) - 5;
+    int start_x = (int)(win->player.x / TILE) - 5;
+    int start_y = (int)(win->player.y / TILE) - 5;
 
     h = -1;
     while (++h <= 10)
@@ -60,7 +54,7 @@ void draw_minimap(void *param)
         w = -1;
         while (++w <= 10)
         {
-            color = color_detect(xs + h, ys + w, map);
+            color = color_detect(start_x + h, start_y + w, map);
             draw_square(win, h * 10, w * 10, color);
         }
     }

@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/30 15:52:58 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/01 14:54:16 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 #define COLOR_PLAYER  0xFF0000
 #define COLOR_WALL    0x333333
 #define COLOR_FLOOR   0xDDDDDD
+#define COLOR_DOOR_C  0x664400
+#define COLOR_DOOR_O  0xAAAAAA
 
 # define GET -1
 # define ERR 1

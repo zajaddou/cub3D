@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:34:59 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/28 11:06:08 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/01 14:43:11 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int scan_map(char *str)
         c = str[i];
         if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
             p++;
-        else if (c != '0' && c != '1' && c != ' ' && c != '\n')
+        else if (c != '0' && c != '1' && c != ' ' && c != '\n' && (c != 'D' && c != 'd'))
             return (error("invalid map character"), ERR);
     }
     if (p > 1)
