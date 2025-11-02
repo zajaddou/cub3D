@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/10/31 08:39:36 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/11/02 11:25:55 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@
 # include <limits.h>
 # include <math.h>
 
+
+
+
+enum e_dir
+{
+	NORTH = 0,
+	SOUTH,
+	EAST,
+	WEST
+};
 
 typedef struct parsing
 {
@@ -97,7 +107,7 @@ t_map		*map_g(void);
 t_parsing	*parsing_g(void);
 t_player 	*player_g(void);
 
-// RAYCASTING
+// RAYCASTING_____________________________________________________________________________________________---
 
 void init_window();
 int render_frame(void *param);
@@ -130,8 +140,29 @@ typedef struct s_keys
         int right;
     } t_keys;
 
+
+
+typedef struct s_tex
+{
+	void *img;
+
+
+	int width;
+	int height;
+
+
+	char *addr;
+	int bits_per_pixel;
+	int line_lenght;
+	int endian;
+}t_tex;
+
 typedef struct s_window
 {
+
+	// tex
+	t_tex tex_data[4];
+	
 	void *mlx;
 	void *win;
 	void *img;
@@ -175,6 +206,10 @@ typedef struct s_window
 
 	t_keys keys;
 
+
+	// textures
+	
+
 }t_window;
 
 // --- COLORS ---
@@ -203,8 +238,8 @@ void put_pixel(t_window *win, int x, int y, int color);
 
 // mouvment for the player
 
-# define MOVE_SPEED 5
-# define ROT_SPEED 0.1
+# define MOVE_SPEED 3
+# define ROT_SPEED 0.05
 
 # define KEY_W 13
 # define KEY_A 0
@@ -213,9 +248,13 @@ void put_pixel(t_window *win, int x, int y, int color);
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 # define KEY_ESC 53
-
+void    textures(t_window *win);
 int key_press_handle(int key, t_window *win);
 void is_hor_ray(t_window *win, double ray_angle, int id);
 void is_ver_ray(t_window *win, double ray_angle, int id);
+
+
+
+void	draw_textures(t_window *win);
 
 #endif
