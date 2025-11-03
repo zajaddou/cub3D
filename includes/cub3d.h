@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/03 12:35:25 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/11/03 12:38:16 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,16 +191,12 @@ typedef struct s_window
 	int line_len;
 	int endian;
 
-	// rays and player for raycasting
+
 
 	
 	t_player player;
 	t_ray rays[NUM_RAYS];
 
-	// raycasting 
-
-
-	
 
 	
 	double hit_hor_x;
@@ -225,26 +221,19 @@ typedef struct s_window
 
 	t_keys keys;
 
-
-	// textures
 	
 
 }t_window;
 
-// --- COLORS ---
-
-// for raycasting 
 
 double	calc_distance(double x1, double y1, double x2, double y2);
 int has_wall(double x, double y);
 void angle_update(double* ray_angle);
 
-void render_walls(t_window *win, int i, int color);
 int	key_release_handle(int key, t_window *win);
 void	move_player(t_window *win, double move_speed, double angle_offset);
 void	rotate_player(t_window *win, double rot_speed);
 void	update_player(t_window *win);
-// funciton for window 
 t_window *window_g(void);
 void render_background(t_window *win);
 void put_pixel(t_window *win, int x, int y, int color);
