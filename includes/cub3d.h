@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/03 12:38:16 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/11/03 14:02:21 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,9 @@
 # include <limits.h>
 # include <math.h>
 
-
-
-
 enum e_dir
 {
-	NORTH = 0,
+	NORTH,
 	SOUTH,
 	EAST,
 	WEST
@@ -135,38 +132,24 @@ typedef struct s_ray
 }	t_ray;
 
 typedef struct s_keys
-    {
-        int w;
-        int a;
-        int s;
-        int d;
-        int left;
-        int right;
-    } t_keys;
-
-
+{
+	int w;
+	int a;
+	int s;
+	int d;
+	int left;
+	int right;
+} t_keys;
 
 typedef struct s_tex
 {
 	void *img;
-
-
 	int width;
 	int height;
-
-
 	char *addr;
 	int bits_per_pixel;
 	int line_lenght;
 	int endian;
-
-
-
-
-
-
-
-	// for function draw_wall_strip()
 	int         texture_id;
 	int         color;
     double      step;
@@ -178,51 +161,29 @@ typedef struct s_tex
 
 typedef struct s_window
 {
-
-	// tex
 	t_tex tex_data[4];
-	
 	void *mlx;
 	void *win;
 	void *img;
-
 	char *addr;
 	int bpp;
 	int line_len;
-	int endian;
-
-
-
-	
+	int endian;	
 	t_player player;
-	t_ray rays[NUM_RAYS];
-
-
-	
+	t_ray rays[NUM_RAYS];	
 	double hit_hor_x;
 	double hor_distace;
 	double hit_ver_y;
 	double ver_distace;
 	double distance;
-
 	int iswall;
-
-	
 	double step_x;
 	double step_y;
-
-	
 	double ray_x;
 	double ray_y;
-
-
 	int is_hor_wall;
 	int is_ver_wall;
-
 	t_keys keys;
-
-	
-
 }t_window;
 
 
