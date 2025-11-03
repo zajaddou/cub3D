@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 08:31:36 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/02 13:24:57 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/11/03 12:19:44 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	key_press_handle(int key, t_window *win)
 
 int	key_release_handle(int key, t_window *win)
 {
-	printf("key = %d \n", key);
 	if (key == KEY_W)
 		win->keys.w = 0;
 	if (key == KEY_S)
@@ -49,78 +48,33 @@ int	key_release_handle(int key, t_window *win)
 	return (0);
 }
 
-void	rotate_player(t_window *win, double rot_speed)
+double	get_padding(double move_component)
 {
-	win->player.angle += rot_speed;
-	angle_update(&win->player.angle);
+	if (move_component > 0)
+		return (COLLISION_PADDING);
+	if (move_component < 0)
+		return (-COLLISION_PADDING);
+	return (0);
 }
 
-// void	move_player(t_window *win, double move_speed, double angle_offset)
-// {
-// 	double	move_angle;
-// 	double	new_x;
-// 	double	new_y;
-// 	double	move_x;
-// 	double	move_y;
-
-// 	move_angle = win->player.angle + angle_offset;
-// 	angle_update(&move_angle);
-// 	move_x = cos(move_angle) * move_speed;
-// 	move_y = sin(move_angle) * move_speed;
-// 	new_x = win->player.x + move_x;
-// 	// printf("new x fo player = %f \n", new_x);
-// 	if (!has_wall(new_x, win->player.y))
-// 		win->player.x = new_x;
-// 	new_y = win->player.y + move_y;
-// 	// printf("new y fo player = %f \n", new_y);
-// 	if (!has_wall(win->player.x, new_y))
-// 		win->player.y = new_y;
-// }
-
-
-
-
-
-
-
-#define COLLISION_PADDING 5.0
-
-double get_padding(double move_component)
+void	move_player(t_window *win, double move_speed, double angle_offset)
 {
-    if (move_component > 0)
-        return (COLLISION_PADDING);
-    if (move_component < 0)
-        return (-COLLISION_PADDING);
-    return (0);
-}
+	double	move_angle;
+	double	new_x;
+	double	new_y;
+	double	move_x;
+	double	move_y;
 
-void   move_player(t_window *win, double move_speed, double angle_offset)
-{
-    double  move_angle;
-    double  new_x;
-    double  new_y;
-    double  move_x;
-    double  move_y;
-    double  padding_x;
-    double  padding_y;
-
-    move_angle = win->player.angle + angle_offset;
-    angle_update(&move_angle);
-    move_x = cos(move_angle) * move_speed;
-    move_y = sin(move_angle) * move_speed;
-
-    // 7sseb l padding fin ghaykon
-    padding_x = get_padding(move_x);
-    padding_y = get_padding(move_y);
-    
-    // Check l collision m3a l padding
-    new_x = win->player.x + move_x;
-    if (!has_wall(new_x + padding_x, win->player.y))
-        win->player.x = new_x;
-    
-    new_y = win->player.y + move_y;
-    if (!has_wall(win->player.x, new_y + padding_y))
-        win->player.y = new_y;
+	move_angle = win->player.angle + angle_offset;
+	angle_update(&move_angle);
+	move_x = cos(move_angle) * move_speed;
+	move_y = sin(move_angle) * move_speed;
+	new_x = win->player.x + move_x;
+	if (!has_wall(new_x + get_padding(move_x), win->player.y))
+		win->player.x = new_x;
+	new_y = win->player.y + move_y;
+	if (!has_wall(win->player.x, new_y + get_padding(move_y)))
+		win->player.y = new_y;
 }
 
 void	update_player(t_window *win)

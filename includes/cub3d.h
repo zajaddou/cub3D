@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/02 11:25:55 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/11/03 12:35:25 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,10 @@ typedef struct s_ray
 	int facing_left;
 	int facing_right;
 	
+
+	int     draw_start;
+    int     draw_end;
+	double  wall_height;
 }	t_ray;
 
 typedef struct s_keys
@@ -155,6 +159,21 @@ typedef struct s_tex
 	int bits_per_pixel;
 	int line_lenght;
 	int endian;
+
+
+
+
+
+
+
+	// for function draw_wall_strip()
+	int         texture_id;
+	int         color;
+    double      step;
+    double      tex_pos;
+    int         tex_x;
+    int         tex_y;
+    double      wall_hit_x;
 }t_tex;
 
 typedef struct s_window
@@ -220,11 +239,6 @@ double	calc_distance(double x1, double y1, double x2, double y2);
 int has_wall(double x, double y);
 void angle_update(double* ray_angle);
 
-// drawing the walls
-# define COLOR_NORTH 0x00FF0000 // Red
-# define COLOR_SOUTH 0x0000FF00 // Green
-# define COLOR_EAST  0x000000FF // Blue
-# define COLOR_WEST  0x00FFFF00 // Yellow
 void render_walls(t_window *win, int i, int color);
 int	key_release_handle(int key, t_window *win);
 void	move_player(t_window *win, double move_speed, double angle_offset);
@@ -235,26 +249,13 @@ t_window *window_g(void);
 void render_background(t_window *win);
 void put_pixel(t_window *win, int x, int y, int color);
 
-
-// mouvment for the player
-
-# define MOVE_SPEED 3
-# define ROT_SPEED 0.05
-
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
-# define KEY_ESC 53
-void    textures(t_window *win);
 int key_press_handle(int key, t_window *win);
 void is_hor_ray(t_window *win, double ray_angle, int id);
 void is_ver_ray(t_window *win, double ray_angle, int id);
 
 
 
-void	draw_textures(t_window *win);
+void    draw_textures(t_window *win, int i, double distance_proj_plane);
+void	rotate_player(t_window *win, double rot_speed);
 
 #endif

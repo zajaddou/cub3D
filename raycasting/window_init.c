@@ -6,11 +6,17 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:39:46 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/10/31 08:45:31 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/11/03 12:19:55 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	rotate_player(t_window *win, double rot_speed)
+{
+	win->player.angle += rot_speed;
+	angle_update(&win->player.angle);
+}
 
 void	angle_update(double *ray_angle)
 {

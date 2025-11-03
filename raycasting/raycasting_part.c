@@ -6,7 +6,7 @@
 /*   By: mgarouj <mgarouj@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:18:53 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/02 13:21:30 by mgarouj          ###   ########.fr       */
+/*   Updated: 2025/11/03 12:37:09 by mgarouj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	has_wall(double x, double y)
 			return (1);
 	return (0);
 }
-
 
 void	update_cast(t_window *win, double ray_angle, int id)
 {
@@ -87,20 +86,9 @@ int	render_frame(void *param)
 
 	win = (t_window *)param;
 	update_player(win);
-
-	
 	render_background(win);
 	cast_all_rays(win);
-	printf("\n\n\n\n\n\n\nfacing_down : %d\n", win->rays[NUM_RAYS / 2].facing_down);
-	printf("facing_up : %d\n", win->rays[NUM_RAYS / 2].facing_up);
-	printf("facing_left : %d\n", win->rays[NUM_RAYS / 2].facing_left);
-	printf("facing_right : %d\n", win->rays[NUM_RAYS / 2].facing_right);
-	printf("hit_vertical : %d\n", win->rays[NUM_RAYS / 2].hit_vertical);
-	
-	// render_walls(win, 0, 0);
-
-
-	draw_textures(win);
+	draw_textures(win, 0, ((double)WIN_W) / (2.0 * tan(FOV / 2.0)));
 	mlx_put_image_to_window(win->mlx, win->win, win->img, 0, 0);
 	return (0);
 }
