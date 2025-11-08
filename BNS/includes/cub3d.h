@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 16:24:59 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 16:32:08 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ void		rotate_player(t_window *win, double rot_speed);
 // BONUS
 
 void		draw_minimap(void *param);
+int         mouse_handle(int x, int y, t_window *win);
 
 #endif
