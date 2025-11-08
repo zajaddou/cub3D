@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 08:31:36 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/08 15:37:58 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 20:11:31 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	key_press_handle(int key, t_window *win)
 		win->keys.left = 1;
 	if (key == KEY_RIGHT)
 		win->keys.right = 1;
+	if (key == KEY_E)
+		door_handle();
 	return (0);
 }
 
@@ -50,6 +52,8 @@ int	key_release_handle(int key, t_window *win)
 		win->keys.left = 0;
 	if (key == KEY_RIGHT)
 		win->keys.right = 0;
+	if (key == KEY_W)
+		win->keys.w = 0;
 	return (0);
 }
 

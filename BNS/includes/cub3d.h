@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 17:04:39 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 20:10:56 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void		rotate_player(t_window *win, double rot_speed);
 
 // BONUS
 
+void	    door_handle(void);
 void        init_animation(void);
 void        animation(t_window *win);
 void		draw_minimap(void *param);
