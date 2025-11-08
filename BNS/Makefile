@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/11/08 17:23:14 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/11/08 19:45:04 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,10 @@ SRC = ./main.c\
 	./raycasting/mouvment_key.c\
 	./raycasting/cast_hor_ver.c\
 	./raycasting/textures.c\
+	./bonus/animation.c \
 	./bonus/minimap.c \
 	./bonus/mouse.c \
-	./bonus/animation.c
+	./bonus/doors.c \
 
 OBJ_M = $(SRC:.c=.o)
 

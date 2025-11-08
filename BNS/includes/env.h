@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 16:24:40 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 18:55:58 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define COLLISION_PADDING 5.0
 
 # define MOVE_SPEED 5
-# define ROT_SPEED 0.08
+# define ROT_SPEED 0.05
 
 # define KEY_W 13
 # define KEY_A 0

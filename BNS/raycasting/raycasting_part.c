@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:18:53 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/08 16:51:09 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 18:55:12 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	has_wall(double x, double y)
 	if (map_x < 0 || map_x >= map->w || map_y < 0 || map_y >= map->h)
 		return (1);
 	if (map->map[map_y] && (int) ft_strlen(map->map[map_y]) > map_x)
-		if (map->map[map_y][map_x] == '1')
+		if (map->map[map_y][map_x] == '1' || map->map[map_y][map_x] == 'D')
 			return (1);
 	return (0);
 }
