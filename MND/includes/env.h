@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
+/*   Updated: 2025/11/08 15:47:16 by zajaddou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ENV_H
+# define ENV_H
+
+# define WIN_W 1080
+# define WIN_H 720
+# define GET -1
+# define ERR 1
+# define OK 0
+# define FREE 1
+
+# define PI 3.14159265359
+# define FOV 1.047197551196666687
+# define TILE 32
+# define NUM_RAYS WIN_W 
+# define COLLISION_PADDING 5.0
+
+# define MOVE_SPEED 5
+# define ROT_SPEED 0.08
+
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define KEY_ESC 53
+
+# define RESET	"\e[0m"
+# define BOLD	"\e[1m"
+# define RED	"\e[31m"
+# define CYAN	"\e[36m"
+
+#endif
