@@ -6,13 +6,13 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:40:42 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 15:41:42 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 16:45:46 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-typedef struct parsing
+typedef struct s_parsing
 {
 	char		*config[6];
 	char		*raw_config;
@@ -27,6 +27,11 @@ typedef struct s_map
 	int		h;
 	int		w;
 }	t_map;
+
+typedef struct s_animation
+{
+	void *images[10];
+} t_animation;
 
 typedef struct s_player
 {

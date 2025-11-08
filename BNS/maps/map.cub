@@ -1,8 +1,8 @@
 
-WE ./textures/4.xpm
-NO ./textures/1.xpm
-SO ./textures/2.xpm
-EA ./textures/3.xpm
+WE ./textures/wall/4.xpm
+NO ./textures/wall/1.xpm
+SO ./textures/wall/2.xpm
+EA ./textures/wall/3.xpm
 
 
 F 20,20,10

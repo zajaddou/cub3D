@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 16:32:59 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 17:17:21 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int ac, char **av)
 	init_textures();
 	free_parsing();
 	init_data();
+	init_animation();
 	mlx_loop_hook(window_g()->mlx, render_frame, window_g());
 	mlx_hook(window_g()->win, 3, 0, key_release_handle, window_g());
 	mlx_hook(window_g()->win, 2, 0, key_press_handle, window_g());

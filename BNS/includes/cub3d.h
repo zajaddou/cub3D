@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 16:32:08 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 17:04:39 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@ void		error(char *str);
 
 // LIB
 
+int			ft_isdigit(int c);
+char	    *ft_itoa(int n);
 int			ft_isalpha(int c);
 char		*buff_dup(int c, int dup);
 int			ft_atoi(const char *str);
 char		**ft_split(char const *s, char c);
-int			ft_isdigit(int c);
-int			or(int main, int b, int c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strncpy(char *dest, const char *src, size_t n);
+size_t	    ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strdup(const char *s);
 char		*ft_strjoin(char const *s1, char const *s2);
@@ -104,6 +105,8 @@ void		rotate_player(t_window *win, double rot_speed);
 
 // BONUS
 
+void        init_animation(void);
+void        animation(t_window *win);
 void		draw_minimap(void *param);
 int         mouse_handle(int x, int y, t_window *win);
 

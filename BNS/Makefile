@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/11/08 16:33:12 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/11/08 17:11:45 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME    = cub3D
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror #-fsanitize=address
 
-SRC =  \
+SRC = ./main.c\
 	./global/global.c \
 	./global/ft_free.c \
 	./lib/ft_atoi.c \
@@ -28,6 +28,8 @@ SRC =  \
 	./lib/ft_strdup.c \
 	./lib/ft_simple.c \
 	./lib/ft_strlen.c \
+	./lib/ft_itoa.c \
+	./lib/ft_strlcpy.c \
 	./lib/get_next_line.c \
 	./parsing/config.c \
 	./parsing/config_.c \
@@ -39,28 +41,29 @@ SRC =  \
 	./parsing/format.c \
 	./parsing/textures.c \
 	./parsing/is.c \
-	./raycasting/window_init.c\
+	./raycasting/window_init.c \
 	./raycasting/raycasting_part.c\
 	./raycasting/render_background.c\
 	./raycasting/mouvment_key.c\
 	./raycasting/cast_hor_ver.c\
 	./raycasting/textures.c\
-	./bonus/minimap.c\
-	./bonus/mouse.c\
+	./bonus/minimap.c \
+	./bonus/mouse.c \
+	./bonus/animation.c
 
 OBJ_M = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): main.o $(OBJ_M)
-	@$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
+$(NAME): $(OBJ_M)
+	$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c includes/cub3d.h includes/env.h includes/structs.h
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf .vscode
-	@rm -f $(OBJ_M) main.o
+	rm -f $(OBJ_M) main.o
 	@clear
 
 fclean: clean
