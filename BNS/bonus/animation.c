@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 18:34:49 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 17:16:03 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 18:40:45 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,15 @@ void    init_animation(void)
     int         w;
     int         h;
     int         i;
+    char        *path;
     
     win = window_g();
-
     i = -1;
     while (++i < 10)
-        anim_g()->images[i] = mlx_xpm_file_to_image(win->mlx, ft_strjoin("textures/anim/", ft_strjoin(ft_itoa(i),".xpm")), &w, &h);
-
-    printf("\nIMAGE : H:%d W:%d\n", h, w);
+    {
+        path = ft_strjoin("textures/anim/", ft_strjoin(ft_itoa(i),".xpm"));
+        anim_g()->images[i] = mlx_xpm_file_to_image(win->mlx, path, &w, &h);
+    }
 }
 
 void animation(t_window *win)

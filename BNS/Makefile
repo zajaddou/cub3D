@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/11/08 17:11:45 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/11/08 17:23:14 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,14 +56,14 @@ OBJ_M = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ_M)
-	$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
+	@$(CC) $(CFLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c includes/cub3d.h includes/env.h includes/structs.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf .vscode
-	rm -f $(OBJ_M) main.o
+	@rm -f $(OBJ_M) main.o
 	@clear
 
 fclean: clean
