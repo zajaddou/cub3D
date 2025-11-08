@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:13:41 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/04 13:13:43 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 17:21:54 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*ft_min(void)
 {
 	char	*result;
 
-	result = (char *)malloc(12);
+	result = (char *)ft_malloc(12);
 	if (!result)
 		return (NULL);
 	ft_strlcpy(result, "-2147483648", 12);
@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 	len = ft_len(n) + sign;
 	if (sign)
 		n = -n;
-	result = (char *)malloc(len + 1);
+	result = (char *)ft_malloc(len + 1);
 	if (!result)
 		return (NULL);
 	result[len] = '\0';

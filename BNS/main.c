@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 17:17:21 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/08 17:17:59 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ void	logo(void)
 	printf("  ----- ( "RESET"Bonus Part"BOLD CYAN" ) -----  \n\n"RESET);
 }
 
+void	f()
+{
+	system("leaks cub3D");
+}
+
 int	main(int ac, char **av)
 {
+	atexit(f);
 	logo();
 	if (ac != 2)
 		error("Invalid input !");
