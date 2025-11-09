@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:42:55 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 13:22:47 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 14:03:10 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ void	draw_square(int x, int y, int color)
 	}
 }
 
-int	color(int x, int y, t_map *map)
+int	color(int x, int y)
 {
+	t_map	*map;
+
+	map = map_g();
 	if (y < 0 || y >= map->h)
 		return (COLOR_WALL);
 	if (x < 0 || x >= map->w)
@@ -45,22 +48,20 @@ int	color(int x, int y, t_map *map)
 
 void	draw_minimap(void)
 {
-	t_map		*map;
 	int			h;
 	int			w;
-	int			start_x;
-	int			start_y;
+	int			sx;
+	int			sy;
 
-	map = map_g();
-	start_x = (int)(window_g()->player.x / TILE) - 5;
-	start_y = (int)(window_g()->player.y / TILE) - 5;
+	sx = (int)(window_g()->player.x / TILE) - 5;
+	sy = (int)(window_g()->player.y / TILE) - 5;
 	h = -1;
 	while (++h <= 10)
 	{
 		w = -1;
 		while (++w <= 10)
 			draw_square(h * 10, w * 10,
-				color(start_x + h, start_y + w, map));
+				color(sx + h, sy + w));
 	}
 	draw_square(50, 50, COLOR_PLAYER);
 }
