@@ -6,17 +6,19 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:42:55 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 14:45:42 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:22:47 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h" 
 
-void	draw_square(t_window *win, int x, int y, int color)
+void	draw_square(int x, int y, int color)
 {
-	int	h;
-	int	w;
+	t_window	*win;
+	int			h;
+	int			w;
 
+	win = window_g();
 	h = -1;
 	while (++h < 10)
 	{
@@ -41,9 +43,8 @@ int	color(int x, int y, t_map *map)
 	return (COLOR_FLOOR);
 }
 
-void	draw_minimap(void *param)
+void	draw_minimap(void)
 {
-	t_window	*win;
 	t_map		*map;
 	int			h;
 	int			w;
@@ -51,16 +52,15 @@ void	draw_minimap(void *param)
 	int			start_y;
 
 	map = map_g();
-	win = (t_window *)param;
-	start_x = (int)(win->player.x / TILE) - 5;
-	start_y = (int)(win->player.y / TILE) - 5;
+	start_x = (int)(window_g()->player.x / TILE) - 5;
+	start_y = (int)(window_g()->player.y / TILE) - 5;
 	h = -1;
 	while (++h <= 10)
 	{
 		w = -1;
 		while (++w <= 10)
-			draw_square(win, h * 10, w * 10,
+			draw_square(h * 10, w * 10,
 				color(start_x + h, start_y + w, map));
 	}
-	draw_square(win, 50, 50, COLOR_PLAYER);
+	draw_square(50, 50, COLOR_PLAYER);
 }

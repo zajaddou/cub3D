@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 20:10:56 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:29:39 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void		error(char *str);
 // LIB
 
 int			ft_isdigit(int c);
-char	    *ft_itoa(int n);
+char		*ft_itoa(int n);
 int			ft_isalpha(int c);
 char		*buff_dup(int c, int dup);
 int			ft_atoi(const char *str);
 char		**ft_split(char const *s, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strncpy(char *dest, const char *src, size_t n);
-size_t	    ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strdup(const char *s);
 char		*ft_strjoin(char const *s1, char const *s2);
@@ -86,18 +86,18 @@ void		check_path(char *path);
 void		init_window(void);
 void		init_data(void);
 void		init_textures(void);
-int			close_window(t_window *game);
-int			render_frame(void *param);
+int			close_window(void);
+int			render_frame(void);
 double		calc_distance(double x1, double y1, double x2, double y2);
 int			has_wall(double x, double y);
 void		angle_update(double *ray_angle);
-int			key_release_handle(int key, t_window *win);
+int			key_release_handle(int key);
 void		move_player(t_window *win, double move_speed, double angle_offset);
 void		rotate_player(t_window *win, double rot_speed);
 void		update_player(t_window *win);
 void		render_background(t_window *win);
 void		put_pixel(t_window *win, int x, int y, int color);
-int			key_press_handle(int key, t_window *win);
+int			key_press_handle(int key);
 void		is_hor_ray(t_window *win, double ray_angle, int id);
 void		is_ver_ray(t_window *win, double ray_angle, int id);
 void		draw_textures(t_window *win, int i, double distance_proj_plane);
@@ -105,10 +105,11 @@ void		rotate_player(t_window *win, double rot_speed);
 
 // BONUS
 
-void	    door_handle(void);
-void        init_animation(void);
-void        animation(t_window *win);
-void		draw_minimap(void *param);
-int         mouse_handle(int x, int y, t_window *win);
+t_animation	*anim_g(void);
+void		door_handle(void);
+void		init_animation(void);
+void		animation(t_window *win);
+void		draw_minimap(void);
+int			mouse_handle(int x, int y);
 
 #endif

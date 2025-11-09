@@ -6,17 +6,20 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 12:03:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 13:14:32 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:43:58 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	close_window(t_window *game)
+int	close_window(void)
 {
+	t_window	*win;
+
+	win = window_g();
 	printf(BOLD"X Close window \n\n"RESET);
 	destroy_textures();
-	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_window(win->mlx, win->win);
 	ft_free(NULL, FREE);
 	exit(0);
 	return (0);

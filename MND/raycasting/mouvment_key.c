@@ -6,14 +6,17 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 08:31:36 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/08 15:37:58 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:42:45 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	key_press_handle(int key, t_window *win)
+int	key_press_handle(int key)
 {
+	t_window	*win;
+
+	win = window_g();
 	if (key == KEY_ESC)
 	{
 		printf(BOLD "ECS key close \n\n");
@@ -36,8 +39,11 @@ int	key_press_handle(int key, t_window *win)
 	return (0);
 }
 
-int	key_release_handle(int key, t_window *win)
+int	key_release_handle(int key)
 {
+	t_window	*win;
+
+	win = window_g();
 	if (key == KEY_W)
 		win->keys.w = 0;
 	if (key == KEY_S)

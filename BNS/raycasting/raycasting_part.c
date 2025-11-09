@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:18:53 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/08 18:55:12 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:29:26 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,17 @@ void	cast_all_rays(t_window *win)
 	}
 }
 
-int	render_frame(void *param)
+int	render_frame(void)
 {
 	t_window	*win;
 
-	win = (t_window *)param;
+	win = window_g();
 	update_player(win);
 	render_background(win);
 	cast_all_rays(win);
 	draw_textures(win, 0, ((double)WIN_W) / (2.0 * tan(FOV / 2.0)));
-	draw_minimap(win);
+	draw_minimap();
 	mlx_put_image_to_window(win->mlx, win->win, win->img, 0, 0);
-    animation(win);
+	animation(win);
 	return (0);
 }

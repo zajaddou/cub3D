@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 16:53:32 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:43:02 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,18 @@ void		check_path(char *path);
 void		init_window(void);
 void		init_data(void);
 void		init_textures(void);
-int			close_window(t_window *game);
-int			render_frame(void *param);
+int			close_window(void);
+int			render_frame(void);
 double		calc_distance(double x1, double y1, double x2, double y2);
 int			has_wall(double x, double y);
 void		angle_update(double *ray_angle);
-int			key_release_handle(int key, t_window *win);
+int			key_release_handle(int key);
 void		move_player(t_window *win, double move_speed, double angle_offset);
 void		rotate_player(t_window *win, double rot_speed);
 void		update_player(t_window *win);
 void		render_background(t_window *win);
 void		put_pixel(t_window *win, int x, int y, int color);
-int			key_press_handle(int key, t_window *win);
+int			key_press_handle(int key);
 void		is_hor_ray(t_window *win, double ray_angle, int id);
 void		is_ver_ray(t_window *win, double ray_angle, int id);
 void		draw_textures(t_window *win, int i, double distance_proj_plane);

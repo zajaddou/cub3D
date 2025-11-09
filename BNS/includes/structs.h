@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:40:42 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 19:43:21 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 12:21:32 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_map
 
 typedef struct s_animation
 {
-	void *images[10];
-} t_animation;
+	void	*images[10];
+}	t_animation;
 
 typedef struct s_player
 {

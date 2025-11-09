@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 13:57:22 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:41:16 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	main(int ac, char **av)
 	init_textures();
 	free_parsing();
 	init_data();
-	mlx_loop_hook(window_g()->mlx, render_frame, window_g());
-	mlx_hook(window_g()->win, 3, 0, key_release_handle, window_g());
-	mlx_hook(window_g()->win, 2, 0, key_press_handle, window_g());
-	mlx_hook(window_g()->win, 17, 0, close_window, window_g());
+	mlx_loop_hook(window_g()->mlx, render_frame, NULL);
+	mlx_hook(window_g()->win, 3, 0, key_release_handle, NULL);
+	mlx_hook(window_g()->win, 2, 0, key_press_handle, NULL);
+	mlx_hook(window_g()->win, 17, 0, close_window, NULL);
 	mlx_loop(window_g()->mlx);
 	return (OK);
 }

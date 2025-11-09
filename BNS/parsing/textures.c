@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 21:29:20 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/07 10:54:32 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 12:21:45 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void	destroy_textures(void)
 {
 	t_window	*win;
+	t_animation	*anim;
 	int			i;
 
 	win = window_g();
+	anim = anim_g();
 	i = -1;
 	while (++i <= 3)
 	{
@@ -25,6 +27,15 @@ void	destroy_textures(void)
 		{
 			mlx_destroy_image(win->mlx, win->textures[i].img);
 			win->textures[i].img = NULL;
+		}
+	}
+	i = -1;
+	while (++i < 10)
+	{
+		if (anim->images[i])
+		{
+			mlx_destroy_image(win->mlx, anim->images[i]);
+			anim->images[i] = NULL;
 		}
 	}
 }
