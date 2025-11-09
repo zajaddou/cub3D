@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:40:42 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 12:21:32 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 15:41:05 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_keys
 	int	d;
 	int	left;
 	int	right;
+	int	gun;
 	int	door;
 }	t_keys;
 

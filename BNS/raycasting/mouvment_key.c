@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 08:31:36 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/09 14:11:15 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 15:59:45 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	key_press_handle(int key)
 	if (key == KEY_ESC)
 	{
 		printf(BOLD "ECS key close \n\n");
-		destroy_textures();
-		ft_free(NULL, FREE);
-		exit(0);
+		return (destroy_textures(), ft_free(NULL, FREE), exit(0), 1);
 	}
+	if (key == 125)
+		win->keys.gun = 1;
 	if (key == KEY_W)
 		win->keys.w = 1;
 	if (key == KEY_S)

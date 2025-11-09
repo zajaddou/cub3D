@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 18:34:49 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 12:24:49 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 15:53:34 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_animation(void)
 	win = window_g();
 	anim = anim_g();
 	i = -1;
-	while (++i < 10)
+	while (++i < 7)
 	{
 		path = ft_strjoin("textures/anim/", ft_strjoin(ft_itoa(i), ".xpm"));
 		is_xpm(path);
@@ -47,13 +47,34 @@ void	init_animation(void)
 	}
 }
 
-void	animation(t_window *win)
+void	shoot_animation(t_window *win, t_animation *anim)
 {
 	static float	i;
 
-	i += 0.1;
-	if (i >= 10)
+	i += 0.31;
+	if (i > 6)
+	{
 		i = 0;
+		win->keys.gun = 0;
+	}
 	mlx_put_image_to_window(win->mlx, win->win,
-		anim_g()->images[(int)i], 200, 384);
+		anim->images[(int)i], 400, 470);
+}
+
+void	stand_animation(t_window *win, t_animation *anim)
+{
+	mlx_put_image_to_window(win->mlx, win->win, anim->images[0], 400, 470);
+}
+
+void	animation(void)
+{
+	t_window	*win;
+	t_animation	*anim;
+
+	anim = anim_g();
+	win = window_g();
+	if (win->keys.gun == 1)
+		shoot_animation(win, anim);
+	else
+		stand_animation(win, anim);
 }

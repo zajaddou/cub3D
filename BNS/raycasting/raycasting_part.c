@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:18:53 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/09 14:11:23 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/09 15:51:29 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ int	render_frame(void)
 	draw_textures(win, 0, ((double)WIN_W) / (2.0 * tan(FOV / 2.0)));
 	draw_minimap();
 	mlx_put_image_to_window(win->mlx, win->win, win->img, 0, 0);
-	animation(win);
+	animation();
 	return (0);
 }
