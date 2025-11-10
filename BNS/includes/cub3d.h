@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/10 11:18:15 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:25:13 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,14 @@
 # include <limits.h>
 # include <math.h>
 
-// STATIC 
-
 t_parsing	*pars_g(void);
 t_player	*player_g(void);
 t_window	*window_g(void);
 t_map		*map_g(void);
 
-// GLOBAL
-
 void		*ft_malloc(size_t size);
 void		ft_free(void *ptr, int flag);
 void		error(char *str);
-
-// LIB
 
 int			ft_isdigit(int c);
 char		*ft_itoa(int n);
@@ -61,8 +55,6 @@ int			is_empty(char *str);
 int			is_space(int c);
 int			is_overflow(char *str, int i);
 
-// PARSING
-
 void		parsing(char *path);
 void		free_parsing(void);
 void		format_map(void);
@@ -80,8 +72,6 @@ void		config_raw(void);
 void		map_raw(void);
 char		*rm_spaces(char *str);
 void		check_path(char *path);
-
-// RAYCASTING
 
 void		init_window(void);
 void		init_data(void);
@@ -102,8 +92,6 @@ void		is_hor_ray(t_window *win, double ray_angle, int id);
 void		is_ver_ray(t_window *win, double ray_angle, int id);
 void		draw_textures(t_window *win, int i, double distance_proj_plane);
 void		rotate_player(t_window *win, double rot_speed);
-
-// BONUS
 
 t_animation	*anim_g(void);
 void		door_handle(void);
