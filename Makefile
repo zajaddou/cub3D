@@ -86,13 +86,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ_M)
 	$(CC) $(CFLAGS) $(OBJ_M) -o $@ $(MLX)
-	@echo "✅ Mandatory cub3D built"
 
 bonus: $(NAME_B)
 
 $(NAME_B): $(OBJ_B)
 	$(CC) $(CFLAGS) $(OBJ_B) -o $@ $(MLX)
-	@echo "✨ Bonus cub3D built"
 
 $(MND_P)/%.o: $(MND_P)/%.c $(MND_P)/includes/cub3d.h $(MND_P)/includes/env.h $(MND_P)/includes/structs.h
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -101,15 +99,11 @@ $(BNS_P)/%.o: $(BNS_P)/%.c $(BNS_P)/includes/cub3d.h $(BNS_P)/includes/env.h $(B
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJ_M)
-	@rm -f $(OBJ_B)
-	@echo "🧹 Objects removed"
+	rm -f $(OBJ_M)
+	rm -f $(OBJ_B)
 
 fclean: clean
-	@rm -f $(NAME)
-	@rm -f $(NAME_B)
+	rm -f $(NAME)
+	rm -f $(NAME_B)
 
 re: fclean all
-	@echo "🔄 Rebuilt everything"
-
-.PHONY: all clean fclean re bonus
