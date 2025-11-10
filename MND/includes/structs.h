@@ -6,11 +6,14 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:40:42 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 16:44:02 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 19:48:41 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
+
+# include "cub3d.h"
 
 typedef struct s_parsing
 {
@@ -105,3 +108,4 @@ typedef struct s_window
 	int			is_ver_wall;
 	t_keys		keys;
 }	t_window;
+#endif
