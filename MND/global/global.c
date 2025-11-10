@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 12:03:10 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 13:43:58 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:29:03 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,15 @@ void	*ft_malloc(size_t size)
 		error("Failed to Allocate");
 	ft_free(ptr, 0);
 	return (ptr);
+}
+
+void	logo(void)
+{
+	printf(BOLD CYAN);
+	printf("   ______      __   _____ ____   \n");
+	printf("  / ____/_  __/ /_ |__  // __ \\ \n");
+	printf(" / /   / / / / __ \\ /_ </ / / / \n");
+	printf("/ /___/ /_/ / /_/ /__/ / /_/ /   \n");
+	printf("\\____/\\__,_/_.___/____/_____/  \n\n");
+	printf(RESET);
 }

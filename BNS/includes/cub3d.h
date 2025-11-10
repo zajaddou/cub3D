@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/10 14:25:13 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:30:50 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_map		*map_g(void);
 void		*ft_malloc(size_t size);
 void		ft_free(void *ptr, int flag);
 void		error(char *str);
+void	    logo(void);
 
 int			ft_isdigit(int c);
 char		*ft_itoa(int n);

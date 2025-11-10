@@ -6,22 +6,11 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:49:46 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 13:29:04 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:30:31 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
-
-void	logo(void)
-{
-	printf(BOLD CYAN);
-	printf("   ______      __   _____ ____   \n");
-	printf("  / ____/_  __/ /_ |__  // __ \\ \n");
-	printf(" / /   / / / / __ \\ /_ </ / / / \n");
-	printf("/ /___/ /_/ / /_/ /__/ / /_/ /   \n");
-	printf("\\____/\\__,_/_.___/____/_____/  \n");
-	printf("  ----- ( "RESET"Bonus Part"BOLD CYAN" ) -----  \n\n"RESET);
-}
 
 int	main(int ac, char **av)
 {
