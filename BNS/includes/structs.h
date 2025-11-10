@@ -6,11 +6,12 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:40:42 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 15:41:05 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:54:23 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
 typedef struct s_parsing
 {
@@ -97,7 +98,7 @@ typedef struct s_window
 	int			line_len;
 	int			endian;	
 	t_player	player;
-	t_ray		rays[NUM_RAYS];	
+	t_ray		rays[1080];	
 	double		hit_hor_x;
 	double		hor_distace;
 	double		hit_ver_y;
@@ -112,3 +113,5 @@ typedef struct s_window
 	int			is_ver_wall;
 	t_keys		keys;
 }	t_window;
+
+#endif
