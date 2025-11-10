@@ -6,7 +6,7 @@
 #    By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/08 11:39:01 by zajaddou          #+#    #+#              #
-#    Updated: 2025/11/08 15:32:31 by zajaddou         ###   ########.fr        #
+#    Updated: 2025/11/10 12:23:39 by zajaddou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,10 +75,10 @@ push: fclean
 	@clear
 
 run: all clean
-	@./cub3D maps/map.cub
+	@./cub3D "../maps/mnd.cub"
 
 test: clean
 	@clear
-	@./cub3D maps/map.cub
+	@./cub3D "../maps/mnd.cub"
 
 .PHONY: all clean fclean re
