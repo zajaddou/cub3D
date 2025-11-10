@@ -6,14 +6,12 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:40:42 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/10 19:48:41 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 20:47:02 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
-
-# include "cub3d.h"
 
 typedef struct s_parsing
 {
