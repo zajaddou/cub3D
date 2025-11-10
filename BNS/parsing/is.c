@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:12:04 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/08 13:19:42 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 12:08:12 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	is_cub(char *path)
 	int	len;
 
 	len = ft_strlen(path);
+	if (len == 0)
+		error("Empty path");
 	if (len < 4)
 		error("Not a .cub file");
 	if (!(path[len - 4] == '.' && path[len - 3] == 'c'
@@ -30,6 +32,8 @@ void	is_xpm(char *path)
 	int	len;
 
 	len = ft_strlen(path);
+	if (len == 0)
+		error("Empty path");
 	if (len < 4)
 		error("Not a .xpm file");
 	if (!(path[len - 4] == '.' && path[len - 3] == 'x'
