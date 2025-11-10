@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:48:11 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 13:43:02 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 15:46:43 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,21 @@
 # include <limits.h>
 # include <math.h>
 
-// STATIC 
-
 t_parsing	*pars_g(void);
 t_player	*player_g(void);
 t_window	*window_g(void);
 t_map		*map_g(void);
 
-// GLOBAL
-
 void		*ft_malloc(size_t size);
 void		ft_free(void *ptr, int flag);
 void		error(char *str);
-
-// LIB
+void		logo(void);
 
 int			ft_isalpha(int c);
 char		*buff_dup(int c, int dup);
 int			ft_atoi(const char *str);
 char		**ft_split(char const *s, char c);
 int			ft_isdigit(int c);
-
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strncpy(char *dest, const char *src, size_t n);
 char		*ft_strchr(const char *s, int c);
@@ -59,8 +53,6 @@ char		*buff_str(char *str);
 int			is_empty(char *str);
 int			is_space(int c);
 int			is_overflow(char *str, int i);
-
-// PARSING
 
 void		parsing(char *path);
 void		free_parsing(void);
@@ -79,8 +71,6 @@ void		config_raw(void);
 void		map_raw(void);
 char		*rm_spaces(char *str);
 void		check_path(char *path);
-
-// RAYCASTING
 
 void		init_window(void);
 void		init_data(void);

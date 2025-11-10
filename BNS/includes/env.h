@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:37:06 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/09 13:58:28 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:14:29 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@
 # define KEY_D 2
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
-# define KEY_ESC 53
-
+# define KEY_DOWN 125
 # define KEY_UP 126
+# define KEY_ESC 53
 
 # define RESET	"\e[0m"
 # define BOLD	"\e[1m"
