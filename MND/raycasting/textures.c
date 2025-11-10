@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:11:48 by mgarouj           #+#    #+#             */
-/*   Updated: 2025/11/07 10:04:36 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 19:32:31 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	draw_wall_strip(t_window *win, int x, int y, t_ray *ray)
 	tex->wall_hit_x /= TILE;
 	tex->wall_hit_x -= floor(tex->wall_hit_x);
 	tex->tex_x = (int)(tex->wall_hit_x * tex->width);
-	tex->step = 1.0 * tex->height / ray->wall_height;
+	tex->step = tex->height / ray->wall_height;
 	tex->tex_pos = (ray->draw_start - WIN_H / 2
 			+ ray->wall_height / 2) * tex->step;
 	y = ray->draw_start;
@@ -67,15 +67,11 @@ void	draw_textures(t_window *win, int i, double distance_proj_plane)
 	{
 		perp_dist = win->rays[i].distance
 			* cos(win->rays[i].ray_angle - win->player.angle);
-		if (perp_dist < 1e-30)
-			perp_dist = 1e-30;
 		wall_height = (TILE / perp_dist) * distance_proj_plane;
 		draw_start = (WIN_H / 2) - (wall_height / 2);
 		if (draw_start < 0)
 			draw_start = 0;
 		draw_end = (WIN_H / 2) + (wall_height / 2);
-		if (draw_end >= WIN_H)
-			draw_end = WIN_H - 1;
 		win->rays[i].draw_start = draw_start;
 		win->rays[i].draw_end = draw_end;
 		win->rays[i].wall_height = wall_height;
