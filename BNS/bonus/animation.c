@@ -6,7 +6,7 @@
 /*   By: zajaddou <zajaddou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 18:34:49 by zajaddou          #+#    #+#             */
-/*   Updated: 2025/11/10 12:18:14 by zajaddou         ###   ########.fr       */
+/*   Updated: 2025/11/10 15:45:56 by zajaddou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_animation(void)
 	i = -1;
 	while (++i < 7)
 	{
-		path = ft_strjoin("../textures/anim/", ft_strjoin(ft_itoa(i), ".xpm"));
+		path = ft_strjoin("textures/anim/", ft_strjoin(ft_itoa(i), ".xpm"));
 		is_xpm(path);
 		anim->images[i] = mlx_xpm_file_to_image(win->mlx, path, &x, &x);
 		if (!anim->images[i])
